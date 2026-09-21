@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Take-Home Lab — UK take-home pay calculator 2026/27</title>
+  <meta name="description" content="Illustrative UK take-home pay calculator for the 2026/27 tax year. Income tax, National Insurance, student loan and pension — published by Rodway Labs. Not tax advice.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://takehomelab.co.uk/">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">
+        <span class="mark">TH</span>
+        <span>
+          <span class="brand-name">Take-Home Lab</span><br>
+          <span class="brand-sub">UK pay packet tools</span>
+        </span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" onclick="document.getElementById('nav').classList.toggle('open')">Menu</button>
+      <nav id="nav">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="index.html#calculator">Calculator</a>
+        <a href="guides/index.html">Guides</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+  <div class="trust-bar">
+    <div class="wrap">
+      <span>Free</span>
+      <span>No signup</span>
+      <span>Not a tax adviser</span>
+      <span>2026/27 rates shown</span>
+      <a href="disclaimer.html">Calculator disclaimer</a>
+    </div>
+  </div>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Comparing a job offer / checking a payslip?</p>
+        <h1>See what a UK salary actually reaches your account</h1>
+        <p class="lede">Work out take-home after income tax, National Insurance, student loan and pension for the 2026/27 tax year. England, Wales and Northern Ireland by default; Scotland uses its own bands. Illustrative only.</p>
+        <div class="meta">
+          <span class="avatar">RL</span>
+          <span>Published by <strong>Rodway Labs</strong> — not a tax adviser<br>
+          Take-Home Lab editorial · Published 21 September 2026 · Rates last checked September 2026</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#calculator">Open take-home calculator</a>
+          <a class="linkish" href="guides/pay-rise.html">What a pay rise is worth →</a>
+        </div>
+        <div class="steps">
+          <div><span class="num">1</span><strong>Gross pay</strong>Salary plus optional bonus</div>
+          <div><span class="num">2</span><strong>Deductions</strong>Tax, NI, loan, pension</div>
+          <div><span class="num">3</span><strong>Packet</strong>Annual, monthly and weekly</div>
+        </div>
+      </div>
+      <div>
+        <div class="panel">
+          <p style="letter-spacing:.08em;font-size:.72rem;margin:0 0 8px;color:#94a3b8;">POSITIONING</p>
+          <h2>The headline salary is not the packet</h2>
+          <p>Tax bands, National Insurance, student loan and how your pension is taken often move the number more than the offer letter suggests. Run the illustration before you compare two jobs.</p>
+          <a class="btn" href="#calculator">Calculate take-home</a>
+        </div>
+        <div class="panel light" style="margin-top:14px;">
+          <h2 style="font-size:1rem;">UK pay tools — illustrative only</h2>
+          <p>Not a tax adviser, accountant or FCA-authorised firm. We do not file returns or recommend products.</p>
+          <p>Outputs are scenarios with stated 2026/27 assumptions. Check your P60, payslip and HMRC Personal Tax Account.</p>
+          <p>Income tax: England, Wales &amp; NI share the main rates. Scotland uses separate bands on non-savings, non-dividend income.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="calc-section" id="calculator">
+    <div class="wrap">
+      <div class="calc-card">
+        <div class="calc-head">
+          <p class="badge">CALCULATOR</p>
+          <h2>UK take-home pay — 2026/27</h2>
+          <p class="hint">Personal allowance £12,570; tapered by £1 for every £2 of income above £100,000. Employee NI 8% then 2%. Last checked September 2026.</p>
+        </div>
+        <div class="calc-grid">
+          <form class="calc-form" id="th-form">
+            <label for="gross">Gross annual salary (£)</label>
+            <input id="gross" name="gross" type="number" min="0" step="100" value="35000">
+            <div class="row-2">
+              <div>
+                <label for="bonus">Annual bonus (£)</label>
+                <input id="bonus" name="bonus" type="number" min="0" step="100" value="0">
+              </div>
+              <div>
+                <label for="region">Tax region</label>
+                <select id="region">
+                  <option value="ruk" selected>England, Wales or Northern Ireland</option>
+                  <option value="scotland">Scotland</option>
+                </select>
+              </div>
+            </div>
+            <div class="row-2">
+              <div>
+                <label for="pensionType">Workplace pension</label>
+                <select id="pensionType">
+                  <option value="none" selected>None in this illustration</option>
+                  <option value="netpay">Net pay arrangement</option>
+                  <option value="sacrifice">Salary sacrifice</option>
+                </select>
+              </div>
+              <div>
+                <label for="pensionPct">Pension % of gross</label>
+                <input id="pensionPct" type="number" min="0" max="40" step="0.5" value="0">
+              </div>
+            </div>
+            <p class="hint">Net pay reduces taxable pay, not NI. Salary sacrifice reduces both in this model. Your scheme rules can differ.</p>
+            <label for="studentLoan">Student loan</label>
+            <select id="studentLoan">
+              <option value="none" selected>None</option>
+              <option value="plan1">Plan 1 — threshold £26,900 at 9%</option>
+              <option value="plan2">Plan 2 — threshold £29,385 at 9%</option>
+              <option value="plan4">Plan 4 — threshold £33,795 at 9%</option>
+              <option value="plan5">Plan 5 — threshold £25,000 at 9%</option>
+              <option value="pgl">Postgraduate loan — threshold £21,000 at 6%</option>
+            </select>
+            <p class="hint">Plan 5 applies to new undergraduate loans issued from 6 April 2026 in England. You can hold more than one plan in real life; this tool models one at a time.</p>
+          </form>
+          <div class="calc-out">
+            <p class="hint">Estimated take-home, 2026/27</p>
+            <div class="result-hero" id="out-annual">—</div>
+            <div class="result-sub"><span id="out-monthly">—</span> · <span id="out-weekly">—</span></div>
+            <div class="bars">
+              <div class="bar-row"><span>You keep</span><div class="track"><div class="fill fill-keep" id="bar-keep"></div></div><span id="cell-net">—</span></div>
+              <div class="bar-row"><span>Income tax</span><div class="track"><div class="fill fill-tax" id="bar-tax"></div></div><span id="cell-tax">—</span></div>
+              <div class="bar-row"><span>NI</span><div class="track"><div class="fill fill-ni" id="bar-ni"></div></div><span id="cell-ni">—</span></div>
+              <div class="bar-row"><span>Student loan</span><div class="track"><div class="fill fill-sl" id="bar-sl"></div></div><span id="cell-sl">—</span></div>
+              <div class="bar-row"><span>Pension</span><div class="track"><div class="fill fill-pen" id="bar-pen"></div></div><span id="cell-pen">—</span></div>
+            </div>
+            <table class="table">
+              <tr><th>Gross used</th><td id="cell-gross">—</td></tr>
+              <tr><th>Personal allowance in this run</th><td id="cell-pa">—</td></tr>
+            </table>
+            <p class="hint">Income tax slices</p>
+            <ul class="hint" id="tax-parts"></ul>
+            <p class="method">Method: annual PAYE-style stack. Income tax on pay after personal allowance and any modelled pension relief. Employee Class 1 NI at 8% between £12,570 and £50,270 and 2% above, modelled on the year rather than each pay period. Student loan as a percentage of earnings above the plan threshold.</p>
+            <p class="warn">Illustrative only — not a tax calculation you can file, not personalised advice, not an offer of credit. Blindness, marriage allowance, tax codes other than a standard 1257L, the High Income Child Benefit Charge, savings and dividends are omitted.</p>
+          </div>
+        </div>
+      </div>
+      <div class="example">
+        <p><span class="badge">EXAMPLE</span> WORKED CASE — £35,000 IN ENGLAND</p>
+        <p><strong>£35,000 · no pension · no student loan · rest of UK</strong></p>
+        <p>Taxable pay after the £12,570 allowance is £22,430. Basic-rate tax is 20% of that (£4,486). Employee NI on the slice between £12,570 and £35,000 is 8% (£1,794.40). Illustrated take-home is <strong>£28,719.60 a year, £2,393.30 a month</strong>.</p>
+        <p><button class="btn" type="button" data-example="a">Load this example</button>
+           <button class="btn btn-light" type="button" data-example="b">Same salary with 5% sacrifice + Plan 2</button>
+           <button class="btn btn-light" type="button" data-example="c">£45,000 in Scotland + Plan 4</button></p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2>Guides with numbers</h2>
+      <p>Each guide uses a worked example and links back to the calculator. Last checked September 2026.</p>
+      <div class="cards">
+        <a class="card" href="guides/pay-rise.html">
+          <span class="badge">GUIDE</span>
+          <h3>What a £5,000 pay rise is worth</h3>
+          <p>Gross versus packet once basic-rate tax and NI have taken their slice.</p>
+        </a>
+        <a class="card" href="guides/salary-sacrifice.html">
+          <span class="badge">GUIDE</span>
+          <h3>Salary sacrifice versus net pay</h3>
+          <p>Why two 5% pensions do not leave the same amount in the bank.</p>
+        </a>
+        <a class="card" href="guides/scotland-vs-ruk.html">
+          <span class="badge">GUIDE</span>
+          <h3>Scotland versus the rest of the UK</h3>
+          <p>Same headline salary, different income-tax stack. NI does not change.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="wrap foot-grid">
+      <div>
+        <h3>Take-Home Lab</h3>
+        <p>Independent informational tools from Rodway Labs. Not a tax adviser, not an accountant, not FCA-authorised. Calculators are illustrations for the 2026/27 tax year.</p>
+        <p><a href="https://remortgagelab.co.uk">Remortgage Lab</a> · <a href="https://loancalclab.net">LoanCalc Lab</a></p>
+      </div>
+      <div>
+        <h3>On this site</h3>
+        <ul>
+          <li><a href="index.html#calculator">Calculator</a></li>
+          <li><a href="guides/index.html">Guides</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap legal">© 2026 Rodway Labs. Take-Home Lab. Rates last checked September 2026.</div>
+  </footer>
+  <script src="js/tax.js"></script>
+</body>
+</html>
