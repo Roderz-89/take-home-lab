@@ -21,6 +21,9 @@ export default {
       "Strict-Transport-Security",
       "max-age=31536000; includeSubDomains; preload"
     );
+    if (url.hostname.endsWith(".pages.dev")) {
+      headers.set("X-Robots-Tag", "noindex, nofollow");
+    }
     return new Response(response.body, {
       status: response.status,
       statusText: response.statusText,
