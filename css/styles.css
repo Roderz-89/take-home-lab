@@ -189,3 +189,86 @@ footer li { margin: 6px 0; }
   .menu-btn { display: inline-block; }
   .hero { padding: 36px 0; }
 }
+
+/* —— Consent banner (UK advertising cookies) —— */
+.consent-banner {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 50;
+  border-top: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 -4px 24px rgba(11, 28, 46, 0.12);
+  backdrop-filter: blur(6px);
+}
+.consent-inner {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 16px 0 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.consent-copy { flex: 1 1 280px; min-width: 0; }
+.consent-title {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.consent-desc {
+  margin: 6px 0 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.consent-desc a { color: var(--crimson-dark); }
+.consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.consent-btn {
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: var(--ink);
+}
+.consent-btn:hover { background: #f1f5f9; }
+.consent-btn-accept {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+.consent-btn-accept:hover { background: var(--navy-2); }
+
+/* —— AdSense unit shell (shown only after consent) —— */
+.ad-slot {
+  margin: 28px auto;
+  max-width: min(1120px, calc(100% - 32px));
+  text-align: center;
+}
+.ad-slot .ad-label {
+  margin: 0 0 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+.ad-slot ins.adsbygoogle {
+  display: block;
+  min-height: 90px;
+  width: 100%;
+}
+.prose .ad-slot { max-width: 100%; margin: 28px 0; }
+@media print {
+  .consent-banner, .ad-slot { display: none !important; }
+}
