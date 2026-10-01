@@ -15,6 +15,12 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
+    // Alias for early /guides/50k-take-home slug → series URL
+    if (url.pathname === "/guides/50k-take-home" || url.pathname === "/guides/50k-take-home/") {
+      url.pathname = "/guides/take-home-50000";
+      return Response.redirect(url.toString(), 301);
+    }
+
     const response = await env.ASSETS.fetch(request);
     const headers = new Headers(response.headers);
     headers.set(
