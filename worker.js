@@ -40,7 +40,44 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-    const response = await env.ASSETS.fetch(request);
+    
+    // Alias for /guides/30k-take-home slug → series URL
+    if (url.pathname === "/guides/30k-take-home" || url.pathname === "/guides/30k-take-home/") {
+      url.pathname = "/guides/take-home-30000";
+      return Response.redirect(url.toString(), 301);
+    }
+
+    // Alias for /guides/35k-take-home slug → series URL
+    if (url.pathname === "/guides/35k-take-home" || url.pathname === "/guides/35k-take-home/") {
+      url.pathname = "/guides/take-home-35000";
+      return Response.redirect(url.toString(), 301);
+    }
+
+    // Alias for /guides/45k-take-home slug → series URL
+    if (url.pathname === "/guides/45k-take-home" || url.pathname === "/guides/45k-take-home/") {
+      url.pathname = "/guides/take-home-45000";
+      return Response.redirect(url.toString(), 301);
+    }
+
+    // Alias for /guides/55k-take-home slug → series URL
+    if (url.pathname === "/guides/55k-take-home" || url.pathname === "/guides/55k-take-home/") {
+      url.pathname = "/guides/take-home-55000";
+      return Response.redirect(url.toString(), 301);
+    }
+
+    // Alias for /guides/70k-take-home slug → series URL
+    if (url.pathname === "/guides/70k-take-home" || url.pathname === "/guides/70k-take-home/") {
+      url.pathname = "/guides/take-home-70000";
+      return Response.redirect(url.toString(), 301);
+    }
+
+    // Alias for /guides/75k-take-home slug → series URL
+    if (url.pathname === "/guides/75k-take-home" || url.pathname === "/guides/75k-take-home/") {
+      url.pathname = "/guides/take-home-75000";
+      return Response.redirect(url.toString(), 301);
+    }
+
+const response = await env.ASSETS.fetch(request);
     const headers = new Headers(response.headers);
     headers.set(
       "Strict-Transport-Security",
