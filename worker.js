@@ -27,6 +27,19 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
+
+    // Alias for early /guides/25k-take-home slug → series URL
+    if (url.pathname === "/guides/25k-take-home" || url.pathname === "/guides/25k-take-home/") {
+      url.pathname = "/guides/take-home-25000";
+      return Response.redirect(url.toString(), 301);
+    }
+
+    // Alias for early /guides/60k-take-home slug → series URL
+    if (url.pathname === "/guides/60k-take-home" || url.pathname === "/guides/60k-take-home/") {
+      url.pathname = "/guides/take-home-60000";
+      return Response.redirect(url.toString(), 301);
+    }
+
     const response = await env.ASSETS.fetch(request);
     const headers = new Headers(response.headers);
     headers.set(

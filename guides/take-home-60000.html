@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Take-home pay on £60,000 — England, Wales or Northern Ireland — Take-Home Lab</title>
-  <meta name="description" content="Illustrated 2026/27 take-home on £60,000 in England, Wales or Northern Ireland. Income tax and employee National Insurance only. Not a payslip.">
+  <title>What’s £60k take-home pay? — Take-Home Lab</title>
+  <meta name="description" content="Worked example: £60,000 salary in England, Wales or Northern Ireland for 2026/27 after income tax and National Insurance — gross, tax, NI and take-home.">
   <meta name="google-adsense-account" content="ca-pub-7612291779397704">
-  <meta property="og:title" content="Take-home pay on £60,000 — England, Wales or Northern Ireland — Take-Home Lab">
-  <meta property="og:description" content="Illustrated 2026/27 take-home on £60,000 in England, Wales or Northern Ireland. Income tax and employee National Insurance only. Not a payslip.">
+  <meta property="og:title" content="What’s £60k take-home pay? — Take-Home Lab">
+  <meta property="og:description" content="Worked 2026/27 example: £60,000 gross after income tax and employee NI. Illustrative only.">
   <meta property="og:url" content="https://takehomelab.co.uk/guides/take-home-60000">
   <meta property="og:type" content="article">
   <link rel="canonical" href="https://takehomelab.co.uk/guides/take-home-60000">
@@ -22,23 +22,42 @@
   </header>
   <main class="section">
     <article class="wrap prose">
-<p class="badge">GUIDE</p>
-<h1>Take-home pay on £60,000</h1>
-<p class="src">Last checked 30 September 2026 · Tax year 2026/27 · England, Wales or Northern Ireland · No pension · No student loan · Standard personal allowance</p>
-<p>This page is one worked case, not a quote. It uses the 2026/27 bands published for employers and, for Scotland, the Scottish Income Tax table. It does not know a tax code, a bonus month, or a pension scheme.</p>
-<h2>Worked example</h2>
-<p>A salary of £60,000.00 with nothing else in the model.</p>
-<ul>
-<li>Personal allowance in this run: <strong>£12,570.00</strong></li>
-<li>Income tax: <strong>£11,432.00</strong></li>
-<li>Employee National Insurance: <strong>£3,210.60</strong></li>
-<li>Illustrated take-home: <strong>£45,357.40 a year</strong> (£3,779.78 a month)</li>
-</ul>
-<p>You keep £45,357.40 of £60,000.00 in this illustration. That is not a budget until a payslip agrees.</p>
-<p><a class="btn" href="../index.html#calculator">Run this salary in the calculator</a></p>
-<h2>What this page does not decide</h2>
-<p>It does not say whether the salary is enough. Hours, pension match, student loan and tax code sit outside the illustration.</p>
-<p class="src">Sources: HMRC <a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027">rates and thresholds for employers 2026 to 2027</a>. National Insurance is modelled on the year, not each pay period.</p>
+      <p class="badge">GUIDE</p>
+      <h1>What’s £60k take-home pay?</h1>
+      <p class="src">Last checked 1 October 2026 · Tax year 2026/27 · England, Wales or Northern Ireland · No pension · No student loan · Standard personal allowance</p>
+      <p>A £60,000 offer letter is not a £60,000 bank balance. Income tax and employee National Insurance come out first — and at this level both the higher-rate income-tax band and the 2% NI upper rate appear. This page is one worked case for the 2026/27 tax year using the same bands as the Take-Home Lab calculator — so the £ figures here match the on-page engine. It is an illustration only, not personalised tax advice or a payslip. Publisher: Rodway Labs. Contact: <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>.</p>
+
+      <h2>Worked example — £60,000 gross</h2>
+      <p>A salary of <strong>£60,000.00</strong> with nothing else in the model: standard personal allowance of £12,570, no workplace pension, no student loan.</p>
+      <ul>
+        <li>Gross pay: <strong>£60,000.00</strong></li>
+        <li>Personal allowance in this run: <strong>£12,570.00</strong></li>
+        <li>Taxable pay: £60,000 − £12,570 = <strong>£47,430.00</strong></li>
+        <li>Income tax: 20% × £37,700 = £7,540.00, plus 40% × £9,730 = £3,892.00 → <strong>£11,432.00</strong></li>
+        <li>Employee National Insurance: 8% × (£50,270 − £12,570) + 2% × (£60,000 − £50,270) = <strong>£3,210.60</strong></li>
+        <li>Illustrated take-home: <strong>£45,357.40 a year</strong> (£3,779.78 a month · £872.26 a week)</li>
+      </ul>
+      <p>You keep £45,357.40 of £60,000.00 in this illustration. That is not a budget until a payslip agrees.</p>
+      <div class="example">
+        <p><span class="badge">EXAMPLE</span> £60,000 sits past the rest-of-UK higher-rate threshold and the NI upper earnings limit (both £50,270 for 2026/27). The first £37,700 of taxable pay is basic-rate 20%; the remaining £9,730 is higher-rate 40%. NI is 8% up to £50,270 and 2% on the £9,730 above that. Compare <a href="take-home-50000.html">What’s £50k take-home pay?</a> (still all basic-rate and main NI) and <a href="take-home-50270.html">take-home on £50,270</a> for the ceiling itself.</p>
+      </div>
+
+      <h2>How the figures were produced</h2>
+      <p>The numbers above were calculated with the live <code>js/tax.js</code> engine that powers the homepage calculator — same personal allowance, same rest-of-UK income-tax bands, same NI primary threshold (£12,570), upper earnings limit (£50,270), main rate (8%) and upper rate (2%). Rounding is to the nearest penny in the usual way. Real PAYE National Insurance is assessed per pay period; this site models NI on an annual basis for a clear yearly picture. The method is also summarised on the <a href="../methodology.html">methodology</a> page.</p>
+      <p>Student loan and pension are optional inputs on the calculator. Turning either on reduces take-home further. A Plan 2 loan, for example, takes 9% of pay above its threshold; a salary-sacrifice pension reduces both taxable pay and NI-able pay — and can pull some pay back under the higher-rate line. Neither is included in the £45,357.40 figure above so the baseline stays readable. See <a href="salary-sacrifice.html">salary sacrifice versus net pay</a> for how a 5% pension changes the packet on a related example.</p>
+
+      <h2>What changes the packet from here</h2>
+      <p>Three common forks move the illustration:</p>
+      <ul>
+        <li><strong>A pay rise further above £50,270</strong> — each extra pound meets 40% income tax and 2% NI (42% combined) until the additional-rate band. <a href="pay-rise.html">What a £5,000 pay rise is worth</a> shows the basic-rate maths before that cliff; this £60k page is the worked case after it.</li>
+        <li><strong>Scotland</strong> — income tax uses six Scottish bands; NI does not change. <a href="scotland-vs-ruk.html">Scotland versus the rest of the UK</a> compares the same salary on both stacks, and <a href="scotland-55000.html">£55,000 in Scotland</a> is a nearby Scottish higher-rate example.</li>
+        <li><strong>Pension or student loan</strong> — both leave less cash in the month even when the headline salary stays £60,000. Run those toggles on the calculator rather than guessing.</li>
+      </ul>
+      <p><a class="btn" href="../index.html#calculator">Run £60,000 in the calculator</a></p>
+
+      <h2>What this page does not decide</h2>
+      <p>It does not say £60,000 is “enough”, that you should take a job, or that £45,357.40 is “your” take-home. Tax code, overtime, bonuses, benefits in kind, salary sacrifice and Scottish residence all sit outside this single illustration. Check any offer against a real payslip layout before you treat the monthly figure as a budget.</p>
+      <p class="src">Sources: HMRC <a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027">rates and thresholds for employers 2026 to 2027</a>; Finance Act 2026 main rates. Figures match the Take-Home Lab calculator engine for tax year 2026/27. Illustrative only — not tax advice. Rodway Labs · <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>.</p>
     </article>
   </main>
   <footer><div class="wrap legal">© 2026 Rodway Labs · <a href="../disclaimer.html">Disclaimer</a> · <a href="../advertising.html">Advertising</a> · Illustrative only</div></footer>
