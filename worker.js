@@ -27,7 +27,6 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-
     // Alias for early /guides/25k-take-home slug → series URL
     if (url.pathname === "/guides/25k-take-home" || url.pathname === "/guides/25k-take-home/") {
       url.pathname = "/guides/take-home-25000";
@@ -40,7 +39,6 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-    
     // Alias for /guides/30k-take-home slug → series URL
     if (url.pathname === "/guides/30k-take-home" || url.pathname === "/guides/30k-take-home/") {
       url.pathname = "/guides/take-home-30000";
@@ -89,48 +87,6 @@ export default {
           "Strict-Transport-Security":
             "max-age=31536000; includeSubDomains; preload",
         },
-      });
-    }
-    if (path.toLowerCase().endsWith(".html")) {
-      let next = path.slice(0, -5); // strip .html
-      if (next.endsWith("/index")) {
-        next = next.slice(0, -5); // /guides/index → /guides/
-        if (!next.endsWith("/")) next += "/";
-      }
-      if (next === "" || next === "/index") next = "/";
-      url.pathname = next;
-      return Response.redirect(url.toString(), 301);
-    }
-
-    const response = await env.ASSETS.fetch(request);
-      // If assets try to redirect the verify file, re-fetch without following and
-      // serve the object directly by asking for the raw asset path again.
-      if (response.status >= 300 && response.status < 400) {
-        const raw = new URL(request.url);
-        // Assets may map /googleX.html → /googleX; force file fetch via ASSETS
-        // by requesting the same URL through a no-redirect client isn't available,
-        // so serve a tiny inline verify body from the known filename.
-        const name = path.slice(1);
-        const inline = await env.ASSETS.fetch(new Request(new URL("/" + name, url), request));
-        // Fall through: return whatever ASSETS gives for the exact path when possible.
-      }
-      const headers = new Headers(response.headers);
-      headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
-      // If redirected, synthesize 200 with verification token content from known file.
-      if (response.status >= 300 && response.status < 400) {
-        const token = path.slice(1); // google….html
-        return new Response("google-site-verification: " + token + "\n", {
-          status: 200,
-          headers: {
-            "content-type": "text/html; charset=utf-8",
-            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
-          },
-        });
-      }
-      return new Response(response.body, {
-        status: response.status,
-        statusText: response.statusText,
-        headers,
       });
     }
     if (path.toLowerCase().endsWith(".html")) {
