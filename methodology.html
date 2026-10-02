@@ -24,18 +24,52 @@
     <article class="wrap prose">
 <p class="badge">METHOD</p>
 <h1>How the calculator stacks a packet</h1>
-<p class="src">Last checked 30 September 2026 · Tax year 2026/27</p>
-<p>Take-Home Lab runs an annual PAYE-style stack in the browser. Nothing you type is sent to Rodway Labs. The result is an illustration with the assumptions below, not a figure you can file.</p>
+<p class="src">Last checked 2 October 2026 · Tax year 2026/27</p>
+<p>Take-Home Lab runs an annual PAYE-style stack in the browser. Nothing you type is sent to Rodway Labs. The result is an illustration with the assumptions below, not a figure you can file or budget from without checking a real payslip.</p>
+
+<h2>Order of the stack</h2>
+<ol>
+  <li>Start from gross annual pay (salary, or hourly rate × hours × paid weeks).</li>
+  <li>Apply pension treatment if selected: net pay reduces taxable pay only; salary sacrifice reduces taxable pay and NI-able earnings in this model.</li>
+  <li>Income tax on taxable pay after the personal allowance (and Scottish bands where chosen).</li>
+  <li>Employee Class 1 National Insurance on NI-able earnings for the year.</li>
+  <li>One student loan plan, if selected, at 9% (or 6% postgraduate) above the plan threshold.</li>
+  <li>Take-home = gross − tax − NI − loan − employee pension contribution in the model.</li>
+</ol>
+
 <h2>Income tax</h2>
-<p>England, Wales and Northern Ireland use the main rates: 20% on taxable pay up to £37,700, 40% to £125,140, 45% above. The standard personal allowance is £12,570, reduced by £1 for every £2 of income above £100,000. Scotland uses the 2026/27 Scottish bands on non-savings, non-dividend income. The model assumes a 1257L-style allowance unless the taper applies.</p>
+<p>England, Wales and Northern Ireland use the main rates: 20% on taxable pay up to £37,700, 40% to £125,140, 45% above. The standard personal allowance is £12,570, reduced by £1 for every £2 of income above £100,000 (gone at £125,140). Scotland uses the 2026/27 Scottish bands on non-savings, non-dividend income. The model assumes a 1257L-style allowance unless the taper applies.</p>
+
 <h2>National Insurance</h2>
-<p>Employee Class 1 is modelled on the year: 8% between £12,570 and £50,270, then 2%. Real payroll calculates National Insurance each pay period. A bonus month can therefore differ from this page.</p>
+<p>Employee Class 1 is modelled on the year: 8% between £12,570 and £50,270, then 2%. Real payroll calculates National Insurance each pay period. A bonus month, short weeks or irregular overtime can therefore differ from this annual stack.</p>
+
 <h2>Student loans</h2>
-<p>One plan at a time. Plan 1, 2, 4 and 5 at 9% above the 2026/27 HMRC threshold. Postgraduate loan at 6% above £21,000. Plan 5 is modelled as the plan for new undergraduate loans issued from 6 April 2026 in England, threshold £25,000.</p>
+<p>One plan at a time. Plan 1, 2, 4 and 5 at 9% above the 2026/27 HMRC threshold. Postgraduate loan at 6% above £21,000. Plan 5 is modelled as the plan for new undergraduate loans issued from 6 April 2026 in England, threshold £25,000. The site does not combine two plans on one payslip.</p>
+
 <h2>Pension</h2>
 <p>A percentage of gross. Net pay reduces taxable pay, not NI, in this model. Salary sacrifice reduces both. Relief at source is not modelled. The employer booklet decides which design a scheme actually is.</p>
+
+<h2>Worked check — £35,000 England, no pension, no loan</h2>
+<ul>
+  <li>Taxable pay after £12,570 allowance: £22,430</li>
+  <li>Income tax at 20%: <strong>£4,486.00</strong></li>
+  <li>Employee NI at 8% on £22,430: <strong>£1,794.40</strong></li>
+  <li>Illustrated take-home: <strong>£28,719.60 a year</strong> (£2,393.30 a month)</li>
+</ul>
+<p>The same figures appear on the <a href="guides/take-home-35000.html">£35,000 take-home guide</a> and the <a href="guides/pay-rise.html">pay-rise guide</a>. If your result differs, check region, pension and loan toggles first.</p>
+
 <h2>Left out</h2>
-<p>Other tax codes, marriage allowance, blind person’s allowance, the High Income Child Benefit Charge, savings and dividends, company benefits, court orders, payroll giving, and employer National Insurance.</p>
+<p>Other tax codes, marriage allowance, blind person’s allowance, the High Income Child Benefit Charge, savings and dividends, company benefits, court orders, payroll giving, Scottish starter/higher interactions beyond the published bands, and employer National Insurance.</p>
+
+<h2>Why a guide can disagree with a payslip</h2>
+<ul>
+  <li>Your tax code is not 1257L, or you have a week-1 / month-1 basis.</li>
+  <li>National Insurance was calculated that pay period, not as an annual average.</li>
+  <li>You have two student loans, a postgraduate loan plus an undergraduate plan, or a different threshold.</li>
+  <li>Pension is salary sacrifice on the payslip but net pay in the model (or the reverse).</li>
+</ul>
+
+<p>Related: <a href="glossary.html">glossary</a> · <a href="guides/index.html">guides</a> · <a href="index.html#calculator">calculator</a> · <a href="disclaimer.html">disclaimer</a></p>
 <p class="src">Sources: HMRC <a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027">rates and thresholds for employers 2026 to 2027</a>; Scottish Government <a href="https://www.gov.scot/publications/scottish-income-tax-rates-and-bands/pages/2026-to-2027/">Scottish Income Tax 2026 to 2027</a>.</p>
     </article>
   </main>
