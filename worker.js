@@ -77,7 +77,24 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-const response = await env.ASSETS.fetch(request);
+    // Extensionless canonicals: .html aliases → 301 (not 307 from assets).
+    // Keep Google Search Console HTML verification file intact.
+    const path = url.pathname;
+    if (
+      path.toLowerCase().endsWith(".html") &&
+      !/^\/google[a-z0-9]+\.html$/i.test(path)
+    ) {
+      let next = path.slice(0, -5); // strip .html
+      if (next.endsWith("/index")) {
+        next = next.slice(0, -5); // /guides/index → /guides/
+        if (!next.endsWith("/")) next += "/";
+      }
+      if (next === "" || next === "/index") next = "/";
+      url.pathname = next;
+      return Response.redirect(url.toString(), 301);
+    }
+
+    const response = await env.ASSETS.fetch(request);
     const headers = new Headers(response.headers);
     headers.set(
       "Strict-Transport-Security",
