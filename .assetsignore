@@ -1,7 +1,10 @@
 .git
-.gitignore
-README.md
+.git/**
+node_modules
+node_modules/**
+.wrangler
+.wrangler/**
+package.json
+package-lock.json
 wrangler.jsonc
 worker.js
-node_modules
-.wrangler
