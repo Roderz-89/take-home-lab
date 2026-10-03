@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Take-home pay on £35,000.00 — Scotland — Take-Home Lab</title>
-  <meta name="description" content="Worked 2026/27 Scottish Income Tax example on £35,000.00 plus UK employee NI — compared with the same salary in the rest of the UK. Illustrative only.">
+  <title>Take-home pay on £35,000 — Scotland — Take-Home Lab</title>
+  <meta name="description" content="2026/27 Scottish income tax on £35,000 is £15.07 more than the rest of the UK. Not a zero gap.">
   <meta name="google-adsense-account" content="ca-pub-7612291779397704">
-  <meta property="og:title" content="Take-home pay on £35,000.00 — Scotland — Take-Home Lab">
-  <meta property="og:description" content="Scottish bands + UK NI on £35,000.00 for 2026/27. Illustrative only.">
+  <meta property="og:title" content="Take-home pay on £35,000 — Scotland — Take-Home Lab">
+  <meta property="og:description" content="Starter band saves £39.67; intermediate 21% costs £54.74. Net Scottish tax is £15.07 higher.">
   <meta property="og:url" content="https://takehomelab.co.uk/guides/scotland-35000">
   <meta property="og:type" content="article">
   <link rel="canonical" href="https://takehomelab.co.uk/guides/scotland-35000">
@@ -22,38 +22,32 @@
   </header>
   <main class="section">
     <article class="wrap prose">
-      <p class="badge">GUIDE</p>
-      <h1>Take-home pay on £35,000.00 — Scotland</h1>
-      <p class="src">Last checked 2 October 2026 · Tax year 2026/27 · Scotland (Scottish Income Tax) · UK employee NI · No pension · No student loan</p>
-      <p>Scotland uses its own income-tax bands; employee National Insurance stays on the UK stack. This page is one worked case for <strong>£35,000.00</strong> using the Take-Home Lab engine, with a rest-of-UK comparison on the same gross so the gap is visible. Illustrative only — not a payslip. Rodway Labs · <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>.</p>
+<p class="badge">GUIDE</p>
+<h1>Take-home pay on £35,000 — Scotland</h1>
+<p class="src">Last checked 3 October 2026 · Tax year 2026/27 · Scotland vs England, Wales or Northern Ireland · No pension · No student loan</p>
+<p>£35,000 is the first of these three Scottish salary pages where Scotland costs slightly more, and the gap is small. The salary has entered the Scottish intermediate band (21% from £29,527) but it is still a long way short of the Scottish higher rate at £43,663. The rest of the UK is still entirely at 20%.</p>
+<h2>Scotland</h2>
+<ul>
+<li>Gross <strong>£35,000</strong> · allowance <strong>£12,570</strong> · taxable <strong>£22,430</strong></li>
+<li>Starter 19% on £3,967: <strong>£753.73</strong></li>
+<li>Scottish basic 20% on £12,989 (£16,538 to £29,526): <strong>£2,597.80</strong></li>
+<li>Intermediate 21% on £5,474 (£29,527 to £35,000): <strong>£1,149.54</strong></li>
+<li>Scottish income tax: <strong>£4,501.07</strong></li>
+<li>Employee NI: 8% × (£35,000 − £12,570) = <strong>£1,794.40</strong></li>
+<li>Illustrated take-home: <strong>£28,704.53 a year</strong> (£2,392.04 a month)</li>
+</ul>
+<h2>Same salary in England, Wales or Northern Ireland</h2>
+<ul>
+<li>Income tax: 20% × £22,430 = <strong>£4,486.00</strong></li>
+<li>Employee NI: <strong>£1,794.40</strong> — identical</li>
+<li>Illustrated take-home: <strong>£28,719.60 a year</strong> (£2,393.30 a month)</li>
+</ul>
+<h2>The gap</h2>
+<p>Income tax in Scotland minus the rest of the UK: £4,501.07 − £4,486.00 = <strong>£15.07</strong> a year. Scottish take-home is <strong>£15.07 lower</strong> (£28,704.53 versus £28,719.60). Two 1-point effects nearly cancel. The starter band saves 1 point on £3,967, which is £39.67. The intermediate band costs an extra 1 point on £5,474 versus the rest-of-UK 20%, which is £54.74. Net extra tax is £54.74 − £39.67 = £15.07.</p>
+<p>That is not the £45,000 story. On the <a href="/guides/scotland-vs-ruk">Scotland versus rest of UK</a> page, £45,000 already has £1,338 in the Scottish 42% band, and the tax gap is about <strong>£396</strong> (£396.05 in the engine). £35,000 has none of that 42% slice. It is also the opposite of <a href="/guides/scotland-28000">£28,000</a>, where Scotland is £39.67 cheaper because the intermediate band has not started.</p>
+<p><a class="btn" href="/#calculator">Run £35,000 with Scotland on</a></p>
+<p class="src">Engine: <code>js/tax.js</code> for 2026/27. Illustrative only — not a payslip and not tax advice.</p>
 
-      <h2>Worked example — Scotland</h2>
-      <ul>
-        <li>Gross: <strong>£35,000.00</strong></li>
-        <li>Personal allowance: <strong>£12,570.00</strong></li>
-        <li>Scottish income tax: <strong>£4,486.00</strong></li>
-        <li>Employee National Insurance (UK): <strong>£1,794.40</strong></li>
-        <li>Illustrated take-home: <strong>£28,719.60 a year</strong> (£2,393.30 a month)</li>
-      </ul>
-
-      <h2>Same salary in the rest of the UK</h2>
-      <ul>
-        <li>Rest-of-UK income tax: <strong>£4,486.00</strong></li>
-        <li>Employee NI (unchanged): <strong>£1,794.40</strong></li>
-        <li>Illustrated take-home: <strong>£28,719.60 a year</strong></li>
-        <li>Gap (Scotland − rest of UK) on this EXAMPLE: <strong>£0.00</strong> a year</li>
-      </ul>
-      <div class="example">
-        <p><span class="badge">EXAMPLE</span> The gap is entirely from income-tax band differences in this model — NI cancels out in the comparison. See <a href="/guides/scotland-vs-ruk">Scotland versus the rest of the UK</a> for the narrative frame across salaries.</p>
-      </div>
-
-      <h2>How the figures were produced</h2>
-      <p>Scottish bands and UK NI from <code>js/tax.js</code> for 2026/27. Method: <a href="/methodology">methodology</a>. Toggle Scotland on the homepage calculator to replay this case.</p>
-      <p><a class="btn" href="/#calculator">Run £35,000.00 with Scotland on</a></p>
-
-      <h2>What this page does not decide</h2>
-      <p>It does not say which nation is “better”, and it does not set your tax residence. Pension and student loan are off so the Scotland vs rest-of-UK gap stays readable.</p>
-      <p class="src">Sources: HMRC employer rates 2026–27; Scottish Income Tax bands 2026–27. Illustrative only — not tax advice.</p>
     </article>
   </main>
   <footer><div class="wrap legal">© 2026 Rodway Labs · <a href="/disclaimer">Disclaimer</a> · <a href="/advertising">Advertising</a> · Illustrative only</div></footer>

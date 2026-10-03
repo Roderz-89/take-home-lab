@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Take-home pay on £28,000.00 — Scotland — Take-Home Lab</title>
-  <meta name="description" content="Worked 2026/27 Scottish Income Tax example on £28,000.00 plus UK employee NI — compared with the same salary in the rest of the UK. Illustrative only.">
+  <title>Take-home pay on £28,000 — Scotland — Take-Home Lab</title>
+  <meta name="description" content="2026/27 Scottish income tax on £28,000 is £39.67 less than the rest of the UK. Take-home £23,719.27 vs £23,679.60.">
   <meta name="google-adsense-account" content="ca-pub-7612291779397704">
-  <meta property="og:title" content="Take-home pay on £28,000.00 — Scotland — Take-Home Lab">
-  <meta property="og:description" content="Scottish bands + UK NI on £28,000.00 for 2026/27. Illustrative only.">
+  <meta property="og:title" content="Take-home pay on £28,000 — Scotland — Take-Home Lab">
+  <meta property="og:description" content="At £28,000 Scotland is £39.67 cheaper on income tax because of the 19% starter band.">
   <meta property="og:url" content="https://takehomelab.co.uk/guides/scotland-28000">
   <meta property="og:type" content="article">
   <link rel="canonical" href="https://takehomelab.co.uk/guides/scotland-28000">
@@ -22,38 +22,31 @@
   </header>
   <main class="section">
     <article class="wrap prose">
-      <p class="badge">GUIDE</p>
-      <h1>Take-home pay on £28,000.00 — Scotland</h1>
-      <p class="src">Last checked 2 October 2026 · Tax year 2026/27 · Scotland (Scottish Income Tax) · UK employee NI · No pension · No student loan</p>
-      <p>Scotland uses its own income-tax bands; employee National Insurance stays on the UK stack. This page is one worked case for <strong>£28,000.00</strong> using the Take-Home Lab engine, with a rest-of-UK comparison on the same gross so the gap is visible. Illustrative only — not a payslip. Rodway Labs · <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>.</p>
+<p class="badge">GUIDE</p>
+<h1>Take-home pay on £28,000 — Scotland</h1>
+<p class="src">Last checked 3 October 2026 · Tax year 2026/27 · Scotland vs England, Wales or Northern Ireland · No pension · No student loan</p>
+<p>At £28,000 Scottish income tax is <em>lower</em> than the rest of the UK in this model, not the same and not higher. The salary sits entirely inside the Scottish starter and basic bands. It never reaches the 21% intermediate band, which starts at £29,527. Employee National Insurance is the UK charge either way, so it cancels out of the comparison.</p>
+<h2>Scotland</h2>
+<ul>
+<li>Gross: <strong>£28,000.00</strong> · personal allowance <strong>£12,570.00</strong> · taxable <strong>£15,430.00</strong></li>
+<li>Starter 19% on £3,967 (£12,571 to £16,537): <strong>£753.73</strong></li>
+<li>Scottish basic 20% on the remaining £11,463 (up to £28,000, still under £29,526): <strong>£2,292.60</strong></li>
+<li>Scottish income tax: <strong>£3,046.33</strong></li>
+<li>Employee National Insurance: 8% × £15,430 = <strong>£1,234.40</strong></li>
+<li>Illustrated take-home: <strong>£23,719.27 a year</strong> (£1,976.61 a month)</li>
+</ul>
+<h2>Same salary in England, Wales or Northern Ireland</h2>
+<ul>
+<li>Income tax: 20% × £15,430 = <strong>£3,086.00</strong> (one band, no 19% starter)</li>
+<li>Employee NI: <strong>£1,234.40</strong> — identical</li>
+<li>Illustrated take-home: <strong>£23,679.60 a year</strong> (£1,973.30 a month)</li>
+</ul>
+<h2>The gap</h2>
+<p>Income tax in Scotland minus the rest of the UK: £3,046.33 − £3,086.00 = <strong>−£39.67</strong> a year. Take-home is therefore <strong>£39.67 higher in Scotland</strong> (£23,719.27 versus £23,679.60). The whole £39.67 is 1 percentage point on the £3,967 starter slice. Nothing else differs.</p>
+<p>This is the opposite direction from the <a href="/guides/scotland-vs-ruk">£45,000 comparison</a>, where Scottish tax is about £396 more, because £45,000 has crossed the Scottish higher rate at £43,663. £28,000 has not crossed anything above 20%.</p>
+<p><a class="btn" href="/#calculator">Run £28,000 with Scotland on</a></p>
+<p class="src">Engine: <code>js/tax.js</code> for 2026/27. Also see <a href="/guides/scotland-35000">£35,000</a> and <a href="/guides/scotland-55000">£55,000</a>. Illustrative only — not tax advice.</p>
 
-      <h2>Worked example — Scotland</h2>
-      <ul>
-        <li>Gross: <strong>£28,000.00</strong></li>
-        <li>Personal allowance: <strong>£12,570.00</strong></li>
-        <li>Scottish income tax: <strong>£3,086.00</strong></li>
-        <li>Employee National Insurance (UK): <strong>£1,234.40</strong></li>
-        <li>Illustrated take-home: <strong>£23,679.60 a year</strong> (£1,973.30 a month)</li>
-      </ul>
-
-      <h2>Same salary in the rest of the UK</h2>
-      <ul>
-        <li>Rest-of-UK income tax: <strong>£3,086.00</strong></li>
-        <li>Employee NI (unchanged): <strong>£1,234.40</strong></li>
-        <li>Illustrated take-home: <strong>£23,679.60 a year</strong></li>
-        <li>Gap (Scotland − rest of UK) on this EXAMPLE: <strong>£0.00</strong> a year</li>
-      </ul>
-      <div class="example">
-        <p><span class="badge">EXAMPLE</span> The gap is entirely from income-tax band differences in this model — NI cancels out in the comparison. See <a href="/guides/scotland-vs-ruk">Scotland versus the rest of the UK</a> for the narrative frame across salaries.</p>
-      </div>
-
-      <h2>How the figures were produced</h2>
-      <p>Scottish bands and UK NI from <code>js/tax.js</code> for 2026/27. Method: <a href="/methodology">methodology</a>. Toggle Scotland on the homepage calculator to replay this case.</p>
-      <p><a class="btn" href="/#calculator">Run £28,000.00 with Scotland on</a></p>
-
-      <h2>What this page does not decide</h2>
-      <p>It does not say which nation is “better”, and it does not set your tax residence. Pension and student loan are off so the Scotland vs rest-of-UK gap stays readable.</p>
-      <p class="src">Sources: HMRC employer rates 2026–27; Scottish Income Tax bands 2026–27. Illustrative only — not tax advice.</p>
     </article>
   </main>
   <footer><div class="wrap legal">© 2026 Rodway Labs · <a href="/disclaimer">Disclaimer</a> · <a href="/advertising">Advertising</a> · Illustrative only</div></footer>

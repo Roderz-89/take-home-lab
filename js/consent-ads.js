@@ -125,7 +125,9 @@
       "</div>" +
       "</div>";
 
-    document.body.appendChild(root);
+    var header = document.querySelector(".site-header");
+    if (header && header.parentNode) header.parentNode.insertBefore(root, header.nextSibling);
+    else document.body.insertBefore(root, document.body.firstChild);
 
     root.addEventListener("click", function (ev) {
       var t = ev.target;

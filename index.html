@@ -24,7 +24,7 @@
           <span class="brand-sub">UK pay packet tools</span>
         </span>
       </a>
-      <button class="menu-btn" type="button" aria-expanded="false" onclick="document.getElementById('nav').classList.toggle('open')">Menu</button>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
       <nav id="nav">
         <a href="/" aria-current="page">Home</a>
         <a href="/#calculator">Calculator</a>
@@ -164,16 +164,6 @@
     </div>
   </section>
 
-  <!-- AdSense: consent-gated. Auto ads via client ID; optional data-ad-slot when Chris pastes from AdSense. -->
-  <aside class="ad-slot" data-thl-ad aria-label="Advertisement" hidden>
-    <p class="ad-label">Advertisement</p>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-7612291779397704"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-  </aside>
-
   <section class="section">
     <div class="wrap">
       <h2>Guides with numbers</h2>
@@ -251,8 +241,8 @@
         </a>
         <a class="card" href="/guides/student-loan-plan-5">
           <span class="badge">GUIDE</span>
-          <h3>Plan 5 on a £35,000 salary</h3>
-          <p>9% above £25,000. One plan at a time.</p>
+          <h3>Plan 5 near its £25,000 threshold</h3>
+          <p>On £28,000 the 9% deduction is £270. Plan 2 would still be £0 at that salary.</p>
         </a>
         <a class="card" href="/methodology">
           <span class="badge">METHOD</span>
@@ -263,6 +253,16 @@
       <p><a href="/guides/">All worked guides</a></p>
     </div>
   </section>
+
+  <!-- AdSense: consent-gated. Placed after the guides, not under the example buttons. -->
+  <aside class="ad-slot" data-thl-ad aria-label="Advertisement" hidden>
+    <p class="ad-label">Advertisement</p>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7612291779397704"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </aside>
   <footer>
     <div class="wrap foot-grid">
       <div>
@@ -294,6 +294,17 @@
     <div class="wrap legal">© 2026 Rodway Labs. Take-Home Lab. Rates last checked 30 September 2026.</div>
   </footer>
   <script src="js/tax.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById("menu-btn");
+      var nav = document.getElementById("nav");
+      if (!btn || !nav) return;
+      btn.addEventListener("click", function () {
+        var open = nav.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    })();
+  </script>
   <script src="js/consent-ads.js" data-cookies="cookies.html" data-privacy="privacy.html"></script>
 </body>
 </html>

@@ -192,13 +192,11 @@ footer li { margin: 6px 0; }
 
 /* —— Consent banner (UK advertising cookies) —— */
 .consent-banner {
-  position: fixed;
-  inset: auto 0 0 0;
-  z-index: 50;
-  border-top: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 -4px 24px rgba(11, 28, 46, 0.12);
-  backdrop-filter: blur(6px);
+  position: relative;
+  z-index: 15;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  box-shadow: none;
 }
 .consent-inner {
   width: min(1120px, calc(100% - 32px));
