@@ -8,7 +8,7 @@
   <meta name="google-adsense-account" content="ca-pub-7612291779397704">
   <link rel="canonical" href="https://takehomelab.co.uk/guides/pay-rise">
   <link rel="stylesheet" href="../css/styles.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7612291779397704" crossorigin="anonymous"></script>
+  <!-- Ad script is injected only after advertising consent. -->
 </head>
 <body>
   <header class="site-header">
@@ -54,18 +54,25 @@
       <p><a class="btn" href="/#calculator">Run these salaries in the calculator</a></p>
       <p class="src">Sources: HMRC <a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027">rates and thresholds for employers 2026 to 2027</a>; Finance Act 2026 main rates. Figures from the Take-Home Lab engine. National Insurance is modelled on the year.</p>
     
-      <!-- AdSense: Google certified consent message (CMP) handles ad consent via the tag in <head>. -->
-      <aside class="ad-slot" data-thl-ad aria-label="Advertisement">
+      <!-- AdSense: slot stays hidden and unfilled until Accept ads (thl-consent). -->
+      <aside class="ad-slot" data-thl-ad hidden aria-label="Advertisement">
         <p class="ad-label">Advertisement</p>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-7612291779397704"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </aside>
     </article>
   </main>
   <footer><div class="wrap legal">© 2026 Rodway Labs · <a href="/disclaimer">Disclaimer</a> · <a href="/advertising">Advertising</a></div></footer>
+  <div id="thl-consent" class="consent" role="region" aria-label="Cookie choices" style="position:sticky;bottom:0;z-index:20;background:#0f172a;color:#f8fafc;padding:14px 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+    <p>Advertising stays off until you accept. Essential pages work either way. The choice is stored only in localStorage on this device (<code>thl-consent</code>). <a href="/cookies">Cookies</a> · <a href="/privacy">Privacy</a></p>
+    <div class="consent-actions" style="display:flex;gap:8px">
+      <button type="button" id="thl-essential">Essential only</button>
+      <button type="button" id="thl-accept">Accept ads</button>
+    </div>
+  </div>
+  <script src="/js/thl-consent.js"></script>
 </body>
 </html>
