@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Advertising — Take-Home Lab</title>
-  <meta name="description" content="How Take-Home Lab shows Google AdSense: advertising stays off until you press Accept ads. Published by Rodway Labs.">
+  <meta name="description" content="How Take-Home Lab shows Google AdSense: advertising stays off until you consent in the We value your privacy dialog. Published by Rodway Labs.">
   <link rel="canonical" href="https://takehomelab.co.uk/advertising">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -22,33 +22,35 @@
 
       <h2>Advertising stays off until you accept</h2>
       <ul>
-        <li>On every page that can show ads, a banner offers <strong>Essential only</strong> and <strong>Accept ads</strong>. The AdSense script is not loaded and no ads are requested until you press <strong>Accept ads</strong>.</li>
+        <li>On your first visit to any page, a dialog headed <strong>“We value your privacy”</strong> asks first. It lists two purposes: <em>store and/or access information on a device</em>, and <em>personalised advertising and ad measurement (Google)</em>. The AdSense script is not loaded and no ads are requested until you consent.</li>
+        <li><strong>Accept All</strong> loads the Google AdSense script and requests ads on the pages listed below. Google may then use cookies or similar technologies to serve, personalise and measure ads; see <a href="/cookies">Cookies</a>.</li>
+        <li><strong>Options</strong> lets you choose: Essential is always on, and the switch for personalised advertising and measurement is off by default. <strong>Save choices</strong> with the switch on loads ads; with it off, nothing ad-related loads.</li>
         <li><strong>Essential only</strong> keeps advertising off: the ad slot stays hidden and Google’s script is never loaded.</li>
-        <li><strong>Accept ads</strong> loads the AdSense script for publisher <code>ca-pub-7612291779397704</code> and requests ads. Google may then use cookies or similar technologies to serve and measure ads; see <a href="/cookies">Cookies</a>.</li>
-        <li>Your choice is saved in this browser’s localStorage under <code>thl-consent</code> (<code>essential</code> or <code>all</code>). It is not a cookie and is not sent to us.</li>
+        <li>You don’t need to consent to use the calculator. Your choice applies to this site only and is saved in this browser’s localStorage under <code>thl-consent</code>, as a small record of the notice version (<code>v: 2</code>), your choice (<code>essential</code> or <code>all</code>) and the time you chose. It is not a cookie and is not sent to us. Choices made with the earlier banner are not carried over, so everyone is asked once more. See <a href="/cookies">Cookies</a> for the full format.</li>
       </ul>
 
       <h2>Where ads can appear</h2>
       <ul>
-        <li>The <a href="/">home page</a>, behind the consent banner.</li>
-        <li>Three guides: <a href="/guides/pay-rise">pay rise</a>, <a href="/guides/salary-sacrifice">salary sacrifice</a> and <a href="/guides/scotland-vs-ruk">Scotland vs rest of UK</a>, behind the same consent banner. The AdSense script loads only after you press <strong>Accept ads</strong>.</li>
-        <li>No other page loads AdSense. That includes the salary guides, the guides index, glossary, about, methodology, contact, and the privacy, cookies, disclaimer and advertising pages.</li>
+        <li>The <a href="/">home page</a>, only after you consent.</li>
+        <li>Three guides: <a href="/guides/pay-rise">pay rise</a>, <a href="/guides/salary-sacrifice">salary sacrifice</a> and <a href="/guides/scotland-vs-ruk">Scotland vs rest of UK</a>, again only after you consent.</li>
+        <li>No other page loads AdSense, even after you accept. That includes the salary guides, the guides index, glossary, about, methodology, contact, and the privacy, cookies, disclaimer and advertising pages.</li>
       </ul>
 
       <h2>Changing your choice</h2>
-      <p>Use <strong>Reset my cookie choice</strong> on the <a href="/cookies">Cookies</a> page, or clear site data for takehomelab.co.uk in your browser. The banner will appear again on pages that can show ads. You can manage ad personalisation in <a href="https://adssettings.google.com">Google’s ad settings</a>.</p>
+      <p>Use the <strong>Privacy preferences</strong> link at the bottom of any page to reopen the dialog and choose again. If you switch to Essential only on a page where ads have already loaded, the page reloads so the ads stop. You can also clear site data for takehomelab.co.uk in your browser, and manage ad personalisation in <a href="https://adssettings.google.com">Google’s ad settings</a>.</p>
 
       <h2>Your calculator inputs</h2>
       <p>We do not sell your calculator inputs. Salary figures you type into the calculator stay in your browser for the calculation and are not passed to Google.</p>
 
-      <h2>ads.txt and publisher ID</h2>
-      <p>The root <a href="/ads.txt">ads.txt</a> file authorises Google (<code>google.com</code>) to sell inventory for publisher <code>pub-7612291779397704</code> (DIRECT). In page code the same account appears as <code>ca-pub-7612291779397704</code>.</p>
+      <h2>ads.txt</h2>
+      <p>The root <a href="/ads.txt">ads.txt</a> file authorises Google (<code>google.com</code>) as the direct seller of advertising on Take-Home Lab, for the Rodway Labs AdSense account.</p>
 
       <h2>More detail</h2>
       <p>See <a href="/privacy">Privacy</a> and <a href="/cookies">Cookies</a>. Google’s own policies also apply to the ads it serves. Questions: <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>.</p>
       <p class="src">Last updated 10 October 2026.</p>
     </article>
   </main>
-  <footer><div class="wrap legal">© 2026 Rodway Labs · <a href="/disclaimer">Disclaimer</a> · <a href="/privacy">Privacy</a> · <a href="/cookies">Cookies</a></div></footer>
+  <footer><div class="wrap legal">© 2026 Rodway Labs · <a href="/disclaimer">Disclaimer</a> · <a href="/privacy">Privacy</a> · <a href="/cookies">Cookies</a></div><div class="wrap legal thl-pp"><button type="button" class="thl-pp-link" data-thl-privacy>Privacy preferences</button></div></footer>
+  <script src="/js/thl-consent.js" defer></script>
 </body>
 </html>

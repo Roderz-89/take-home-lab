@@ -263,13 +263,6 @@
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
   </aside>
-  <div id="thl-consent" class="consent" role="region" aria-label="Cookie choices" style="position:sticky;bottom:0;z-index:20;background:#0f172a;color:#f8fafc;padding:14px 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
-    <p>Advertising stays off until you accept. Essential pages work either way. The choice is stored only in localStorage on this device (<code>thl-consent</code>). <a href="/cookies">Cookies</a> · <a href="/privacy">Privacy</a></p>
-    <div class="consent-actions" style="display:flex;gap:8px">
-      <button type="button" id="thl-essential">Essential only</button>
-      <button type="button" id="thl-accept">Accept ads</button>
-    </div>
-  </div>
   <script src="/js/thl-consent.js"></script>
   <footer>
     <div class="wrap foot-grid">
@@ -300,7 +293,7 @@
       </div>
     </div>
     <div class="wrap legal">© 2026 Rodway Labs. Take-Home Lab. Rates last checked 30 September 2026.</div>
-  </footer>
+  <div class="wrap legal thl-pp"><button type="button" class="thl-pp-link" data-thl-privacy>Privacy preferences</button></div></footer>
   <script src="js/tax.js"></script>
   <script>
     (function () {
