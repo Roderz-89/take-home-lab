@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cookies — Take-Home Lab</title>
-  <meta name="description" content="Cookie notice for Take-Home Lab, including Google advertising and Google’s consent message.">
+  <meta name="description" content="Cookie notice for Take-Home Lab: the Essential only / Accept ads banner, the thl-consent setting, and the cookies Google may set after you accept ads.">
   <link rel="canonical" href="https://takehomelab.co.uk/cookies">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -15,19 +15,51 @@
       <nav><a href="/">Home</a><a href="/privacy">Privacy</a></nav>
     </div>
   </header>
-  <main class="section">
+    <main class="section">
     <article class="wrap prose">
       <h1>Cookies</h1>
-      <p>The take-home calculator does not need an account and does not set its own advertising cookies.</p>
-      <p>If the host platform (Cloudflare) sets a strictly necessary cookie to deliver or protect the page, that is a hosting function, not an ad tracker.</p>
-      <h2>Your consent choice</h2>
-      <p>On the pages that can show ads, advertising consent is collected by Google’s consent message, which comes from a Google-certified consent management platform and is delivered through the Google AdSense tag. Take-Home Lab does not run its own ad-consent banner. Google’s message gives you three options: <strong>Consent</strong>, <strong>Do not consent</strong>, or <strong>Manage options</strong> to choose individual purposes and vendors. Google stores your choice and applies it to the ads it serves on this site.</p>
-      <h2>Google advertising</h2>
-      <p>On the pages listed below, the page loads Google AdSense JavaScript. Google may set or read cookies (and similar technologies) to serve and measure advertisements, in line with the choice you make in Google’s consent message. Those cookies are controlled by Google. You can also manage ad personalisation through Google’s ad settings.</p>
-      <p>AdSense is only wired on the home page and three guides (pay rise, salary sacrifice, and Scotland vs rest of UK), not on legal stubs (privacy, cookies, disclaimer, contact, advertising) or the guides index. See <a href="/advertising">Advertising</a> and <a href="/privacy">Privacy</a>.</p>
-      <h2>How to change your mind</h2>
-      <p>If Google shows a “Privacy and cookie settings” link on an ad page, use it to reopen the consent message and change your choice. Otherwise, clear this site’s data (cookies and site storage for takehomelab.co.uk) in your browser and reload one of the ad pages; Google’s message will ask again.</p>
-      <p>Last updated 5 October 2026.</p>
+      <p>Take-Home Lab is published by Rodway Labs. The take-home calculator needs no account, and Take-Home Lab does not set its own advertising cookies. If Cloudflare, our host, sets a strictly necessary cookie to deliver or protect a page, that is a hosting function, not an ad tracker.</p>
+
+      <h2>The consent banner</h2>
+      <p>On the home page, a banner at the bottom of the screen says: “Advertising stays off until you accept. Essential pages work either way.” It has two buttons:</p>
+      <ul>
+        <li><strong>Essential only</strong> saves your choice, hides the banner and keeps the advertising slot hidden. The Google AdSense script is not loaded and no ads are requested.</li>
+        <li><strong>Accept ads</strong> saves your choice, hides the banner, then loads the Google AdSense script (publisher <code>ca-pub-7612291779397704</code>) and requests ads for the page.</li>
+      </ul>
+      <p>Until you press one of the buttons, the banner stays on screen and no AdSense script is loaded. The calculator works the same whichever you choose.</p>
+
+      <h2>What is stored</h2>
+      <p>Your choice is stored only in your browser’s <strong>localStorage</strong> on this device, under the key <code>thl-consent</code>. It is not a cookie and is not sent to us. It has one of two values:</p>
+      <ul>
+        <li><code>essential</code> when you pressed Essential only</li>
+        <li><code>all</code> when you pressed Accept ads</li>
+      </ul>
+      <p>If nothing is stored, the banner is shown again on your next visit to the home page.</p>
+
+      <h2>Cookies Google may set after you accept</h2>
+      <p>Only after <strong>Accept ads</strong> does the page load Google AdSense. Google may then set or read cookies and similar technologies to serve, limit and measure ads and to prevent fraud. These can include first-party cookies on takehomelab.co.uk such as <code>__gads</code>, <code>__gpi</code> and <code>__eoi</code>, and Google cookies such as <code>IDE</code> and <code>test_cookie</code> on doubleclick.net. Google controls these cookies and their lifetimes; see Google’s <a href="https://policies.google.com/technologies/ads">advertising technologies</a> page. You can also manage ad personalisation in <a href="https://adssettings.google.com">Google’s ad settings</a>.</p>
+
+      <h2>Which pages can show ads</h2>
+      <p>The consent banner and its ad slot are on the <a href="/">home page</a>. Three guides also carry an ad slot: <a href="/guides/pay-rise">pay rise</a>, <a href="/guides/salary-sacrifice">salary sacrifice</a> and <a href="/guides/scotland-vs-ruk">Scotland vs rest of UK</a>. Those three guides do not yet show the banner or read your <code>thl-consent</code> choice: they currently load the Google AdSense tag with the page, and Google’s own consent tools apply there. No other page loads AdSense, including the calculator salary guides, the guides index, glossary, about, methodology, contact and the legal pages.</p>
+
+      <h2>How to change your choice</h2>
+      <p>The banner is hidden once you have chosen. To choose again, press the button below. It deletes the <code>thl-consent</code> entry from this browser, and the banner will appear the next time you open the home page.</p>
+      <p><button type="button" id="thl-reset">Reset my cookie choice</button> <span id="thl-reset-msg" role="status"></span></p>
+      <p>You can also clear site data (cookies and site storage) for takehomelab.co.uk in your browser settings. Resetting your choice does not delete cookies Google has already set; clear those in your browser or through Google’s ad settings.</p>
+      <script>
+        (function () {
+          var b = document.getElementById("thl-reset");
+          var m = document.getElementById("thl-reset-msg");
+          if (!b) return;
+          b.addEventListener("click", function () {
+            try { localStorage.removeItem("thl-consent"); m.textContent = "Done. The banner will show on the home page."; }
+            catch (e) { m.textContent = "Your browser blocked this. Clear site data for takehomelab.co.uk instead."; }
+          });
+        })();
+      </script>
+
+      <p>See also <a href="/advertising">Advertising</a> and <a href="/privacy">Privacy</a>.</p>
+      <p>Last updated 10 October 2026.</p>
     </article>
   </main>
   <footer><div class="wrap legal">© 2026 Rodway Labs · <a href="/advertising">Advertising</a> · <a href="/privacy">Privacy</a></div></footer>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Advertising — Take-Home Lab</title>
-  <meta name="description" content="How Take-Home Lab discloses Google advertising. Published by Rodway Labs.">
+  <meta name="description" content="How Take-Home Lab shows Google AdSense: advertising stays off until you press Accept ads. Published by Rodway Labs.">
   <link rel="canonical" href="https://takehomelab.co.uk/advertising">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -15,27 +15,38 @@
       <nav><a href="/">Home</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
     </div>
   </header>
-  <main class="section">
+    <main class="section">
     <article class="wrap prose">
       <h1>Advertising</h1>
-      <p>Take-Home Lab is published by Rodway Labs. This site may display advertising served by <strong>Google</strong> (Google AdSense) on selected pages. Consent for advertising on those pages is collected by Google’s consent message.</p>
-      <h2>What that means</h2>
+      <p>Take-Home Lab is published by Rodway Labs. The site may show advertising served by <strong>Google AdSense</strong> on a small set of pages. Ads pay for the site; they do not change the calculator or the figures in any guide.</p>
+
+      <h2>Advertising stays off until you accept</h2>
       <ul>
-        <li>Ads, if shown, are provided by Google. Google may use cookies or similar technologies to serve and measure ads, subject to your choices and applicable law.</li>
-        <li>We do not sell your calculator inputs. Salary figures typed into the take-home calculator stay in your browser for the calculation.</li>
-        <li>AdSense is wired only on the home page and three guides: pay rise, salary sacrifice, and Scotland vs rest of UK. Salary landings and other guides do not load AdSense.</li>
-        <li>Ad units are not placed on legal stub pages (privacy, cookies, disclaimer, contact, advertising), the guides index, glossary, about, methodology, or other guides outside that small set.</li>
-        <li>On those four pages, Google’s consent message (from a Google-certified consent management platform, delivered through the AdSense tag) asks for your advertising choice: <strong>Consent</strong>, <strong>Do not consent</strong> or <strong>Manage options</strong>. Take-Home Lab does not show a separate ad-consent banner.</li>
-        <li>To change your choice later, use the “Privacy and cookie settings” link if Google shows one, or clear site data for takehomelab.co.uk and reload an ad page.</li>
+        <li>On the home page, a banner offers <strong>Essential only</strong> and <strong>Accept ads</strong>. The AdSense script is not loaded and no ads are requested until you press <strong>Accept ads</strong>.</li>
+        <li><strong>Essential only</strong> keeps advertising off: the ad slot stays hidden and Google’s script is never loaded.</li>
+        <li><strong>Accept ads</strong> loads the AdSense script for publisher <code>ca-pub-7612291779397704</code> and requests ads. Google may then use cookies or similar technologies to serve and measure ads; see <a href="/cookies">Cookies</a>.</li>
+        <li>Your choice is saved in this browser’s localStorage under <code>thl-consent</code> (<code>essential</code> or <code>all</code>). It is not a cookie and is not sent to us.</li>
       </ul>
-      <h2>ads.txt</h2>
-      <p>The root <a href="ads.txt">ads.txt</a> file authorises Google (<code>google.com</code>) to sell inventory for publisher <code>pub-7612291779397704</code> (DIRECT). That is the same ID referenced on ad-capable pages as <code>ca-pub-7612291779397704</code>.</p>
-      <h2>Publisher ID</h2>
-      <p>Google AdSense publisher account associated with this site: <code>pub-7612291779397704</code> (written as <code>ca-pub-7612291779397704</code> in page markup).</p>
+
+      <h2>Where ads can appear</h2>
+      <ul>
+        <li>The <a href="/">home page</a>, behind the consent banner.</li>
+        <li>Three guides: <a href="/guides/pay-rise">pay rise</a>, <a href="/guides/salary-sacrifice">salary sacrifice</a> and <a href="/guides/scotland-vs-ruk">Scotland vs rest of UK</a>. These do not yet show the banner: they currently load the Google AdSense tag with the page, and Google’s own consent tools apply there.</li>
+        <li>No other page loads AdSense. That includes the salary guides, the guides index, glossary, about, methodology, contact, and the privacy, cookies, disclaimer and advertising pages.</li>
+      </ul>
+
+      <h2>Changing your choice</h2>
+      <p>Use <strong>Reset my cookie choice</strong> on the <a href="/cookies">Cookies</a> page, or clear site data for takehomelab.co.uk in your browser. The banner will appear again on the home page. You can manage ad personalisation in <a href="https://adssettings.google.com">Google’s ad settings</a>.</p>
+
+      <h2>Your calculator inputs</h2>
+      <p>We do not sell your calculator inputs. Salary figures you type into the calculator stay in your browser for the calculation and are not passed to Google.</p>
+
+      <h2>ads.txt and publisher ID</h2>
+      <p>The root <a href="/ads.txt">ads.txt</a> file authorises Google (<code>google.com</code>) to sell inventory for publisher <code>pub-7612291779397704</code> (DIRECT). In page code the same account appears as <code>ca-pub-7612291779397704</code>.</p>
+
       <h2>More detail</h2>
-      <p>See <a href="/privacy">Privacy</a> and <a href="/cookies">Cookies</a> for how personal data and cookies are handled when Google advertising is enabled. Google’s own policies also apply to ads they serve.</p>
-      <p>Questions: <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>.</p>
-      <p class="src">Last updated 5 October 2026.</p>
+      <p>See <a href="/privacy">Privacy</a> and <a href="/cookies">Cookies</a>. Google’s own policies also apply to the ads it serves. Questions: <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>.</p>
+      <p class="src">Last updated 10 October 2026.</p>
     </article>
   </main>
   <footer><div class="wrap legal">© 2026 Rodway Labs · <a href="/disclaimer">Disclaimer</a> · <a href="/privacy">Privacy</a> · <a href="/cookies">Cookies</a></div></footer>
