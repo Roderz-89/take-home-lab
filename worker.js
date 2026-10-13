@@ -3,6 +3,27 @@
  * www → apex 301; http → https 301; then serve static assets.
  * Optional HSTS once redirects are in place.
  */
+const SECURITY_HEADERS = {
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "X-Frame-Options": "SAMEORIGIN",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()",
+  "Content-Security-Policy-Report-Only":
+    "default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.gstatic.com https://*.doubleclick.net https://*.googletagservices.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; frame-src https:; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'",
+};
+
+// Known legacy paths: strip .html, /index → dir.
+function cleanPath(path) {
+  if (!path.toLowerCase().endsWith(".html")) return path;
+  let next = path.slice(0, -5);
+  if (next.endsWith("/index")) {
+    next = next.slice(0, -5);
+    if (!next.endsWith("/")) next += "/";
+  }
+  if (next === "" || next === "/index") next = "/";
+  return next;
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -12,6 +33,11 @@ export default {
     if (isWww || isHttp) {
       if (isWww) url.hostname = "takehomelab.co.uk";
       url.protocol = "https:";
+      // Collapse .html / trailing-slash cleanup into the same single 301.
+      const p0 = url.pathname;
+      if (!/^\/google[a-z0-9]+\.html$/i.test(p0)) {
+        url.pathname = cleanPath(p0);
+      }
       return Response.redirect(url.toString(), 301);
     }
 
@@ -100,8 +126,14 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-    const response = await env.ASSETS.fetch(request);
+    let response = await env.ASSETS.fetch(request);
+    // Asset trailing-slash redirects are 307; make them permanent 301s.
+    if (response.status === 307 || response.status === 308) {
+      const loc = response.headers.get("location");
+      if (loc) response = Response.redirect(new URL(loc, url).toString(), 301);
+    }
     const headers = new Headers(response.headers);
+    for (const [k, v] of Object.entries(SECURITY_HEADERS)) headers.set(k, v);
     headers.set(
       "Strict-Transport-Security",
       "max-age=31536000; includeSubDomains; preload"
