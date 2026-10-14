@@ -249,3 +249,9 @@ html.thl-cmp-open { overflow: hidden; }
 .tw { overflow-x: auto; margin: 12px 0 18px; }
 .tw .table th, .tw .table td { padding-right: 10px; white-space: nowrap; }
 .tw .table td:not(:first-child), .tw .table th:not(:first-child) { text-align: right; }
+/* Tap targets >= 44px */
+.foot-links { display: flex; flex-wrap: wrap; gap: 0 4px; }
+.foot-links a, footer li a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; }
+.foot-links a:first-child { padding-left: 0; }
+.thl-pp-link { min-height: 44px; }
+.menu-btn, .btn, select, input { min-height: 44px; }
