@@ -246,3 +246,6 @@ html.thl-cmp-open { overflow: hidden; }
 .thl-cmp-btn { font: inherit; font-weight: 600; padding: 9px 16px; border-radius: 8px; border: 1px solid #0f172a; background: #fff; color: #0f172a; cursor: pointer; }
 .thl-cmp-primary { background: #0f172a; color: #fff; }
 .thl-cmp-btn:hover { filter: brightness(0.95); }
+.tw { overflow-x: auto; margin: 12px 0 18px; }
+.tw .table th, .tw .table td { padding-right: 10px; white-space: nowrap; }
+.tw .table td:not(:first-child), .tw .table th:not(:first-child) { text-align: right; }
