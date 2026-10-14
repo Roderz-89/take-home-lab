@@ -255,3 +255,4 @@ html.thl-cmp-open { overflow: hidden; }
 .foot-links a:first-child { padding-left: 0; }
 .thl-pp-link { min-height: 44px; }
 .menu-btn, .btn, select, input { min-height: 44px; }
+footer p a { display: inline-block; min-height: 44px; line-height: 44px; }
