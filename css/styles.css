@@ -234,3 +234,27 @@ html.thl-cmp-open { overflow: hidden; }
 .tw .table th, .tw .table td { padding-right: 10px; white-space: nowrap; }
 .tw .table td:not(:first-child), .tw .table th:not(:first-child) { text-align: right; }
 .menu-btn, .btn, select, input:not([type=checkbox]) { min-height: 44px; }
+/* Home: calculator-first layout (as on LoanCalc Lab) */
+.hero-compact { padding: 22px 0 20px; }
+.hero-compact .kicker { font-size: 0.85rem; margin: 0 0 6px; }
+.hero-compact h1 { font-size: clamp(1.5rem, 3.6vw, 2.25rem); margin: 0 0 8px; }
+.hero-compact .lede { font-size: 0.98rem; margin: 0; }
+.hero-compact + .calc-section { padding-top: 20px; }
+.hero-after { padding: 36px 0 40px; }
+@media (max-width: 860px) {
+  .hero-compact { padding: 16px 0 14px; }
+  .hero-compact .lede { font-size: 0.9rem; line-height: 1.5; }
+  .hero-compact + .calc-section { padding-top: 14px; }
+  .calc-head { padding: 16px 16px 0; }
+  .calc-form, .calc-out { padding: 12px 16px 20px; }
+  .trust-bar .wrap { gap: 4px 12px; padding: 6px 0; }
+}
+.calc-head .badge { margin: 0; }
+.calc-head h2 { margin: 4px 0 6px; font-size: 1.35rem; }
+.calc-head .hint { margin: 0; }
+.calc-form label:first-child { margin-top: 4px; }
+@media (max-width: 860px) {
+  .hero-compact .kicker { display: none; }
+  .calc-head h2 { font-size: 1.15rem; }
+  .calc-form label { margin: 10px 0 4px; }
+}
