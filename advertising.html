@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Advertising — Take-Home Lab</title>
-  <meta name="description" content="How Take-Home Lab shows Google AdSense: advertising stays off until you consent in the consent dialog. Published by Rodway Labs.">
+  <meta name="description" content="How Take-Home Lab shows Google AdSense: advertising stays off until you consent in our consent pop-up. Published by Rodway Labs.">
   <link rel="canonical" href="https://takehomelab.co.uk/advertising">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -20,7 +20,7 @@
   <meta property="og:image:alt" content="Take-Home Lab">
   <meta property="og:site_name" content="Take-Home Lab">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"Advertising","description":"How Take-Home Lab shows Google AdSense: advertising stays off until you consent in the consent dialog. Published by Rodway Labs.","url":"https://takehomelab.co.uk/advertising","dateModified":"2026-10-17","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"Advertising","item":"https://takehomelab.co.uk/advertising"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"Advertising","description":"How Take-Home Lab shows Google AdSense: advertising stays off until you consent in our consent pop-up. Published by Rodway Labs.","url":"https://takehomelab.co.uk/advertising","dateModified":"2026-10-17","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"Advertising","item":"https://takehomelab.co.uk/advertising"}]}]}</script>
 </head>
 <body>
   <header class="site-header">
@@ -44,13 +44,19 @@
       <p>Take-Home Lab is published by Rodway Labs. The site may show advertising served by <strong>Google AdSense</strong> on a small set of pages. Ads pay for the site; they do not change the calculator or the figures in any guide.</p>
 
       <h2>Advertising stays off until you accept</h2>
+      <p>On your first visit to any page, our own consent pop-up, run by Rodway Labs, asks for your choice. It is headed <strong>“Take-Home Lab asks for your consent to use your personal data to:”</strong> and lists the only two purposes we ask consent for:</p>
       <ul>
-        <li>On your first visit to any page, a consent dialog headed <strong>“Take-Home Lab asks for your consent to use your personal data”</strong> asks first. It lists two purposes: <em>store and/or access information on a device</em>, and <em>personalised advertising and ad measurement (Google)</em>. The AdSense script is not loaded and no ads are requested until you consent.</li>
-        <li><strong>Consent</strong> loads the Google AdSense script and requests ads on the pages listed below. Google may then use cookies or similar technologies to serve, personalise and measure ads; see <a href="/cookies">Cookies</a>.</li>
-        <li><strong>Manage options</strong> lets you choose: Strictly necessary is always on, and the switch for personalised advertising and ad measurement is off by default. <strong>Save choices</strong> with the switch on loads ads; with it off, nothing ad-related loads.</li>
-        <li><strong>Do not consent</strong> keeps advertising off: the ad slot stays hidden and Google’s script is never loaded.</li>
-        <li>You don’t need to consent to use the calculator. Your choice applies to this site only and is saved in this browser’s localStorage under <code>thl-consent</code>, as a small record of the notice version (<code>v: 2</code>), your choice (<code>essential</code> or <code>all</code>) and the time you chose. It is not a cookie and is not sent to us. Choices made with the earlier banner are not carried over, so everyone is asked once more. See <a href="/cookies">Cookies</a> for the full format.</li>
+        <li>personalised advertising and content, advertising and content measurement, audience research and services development (Google AdSense, our only advertising partner); and</li>
+        <li>store and/or access information on a device.</li>
       </ul>
+      <p>It explains that your personal data will be processed and information from your device (cookies, unique identifiers and other device data) may be stored by, accessed by and shared with Google, our advertising partner, or used specifically by this site. It also says that Google may process some data on the basis of legitimate interest, which you can object to under Manage options: choosing Do not consent, or leaving Advertising off, means the Google script never loads, so Google receives nothing from this site for advertising on either basis.</p>
+      <ul>
+        <li><strong>Consent</strong> saves your choice, closes the pop-up and loads the Google AdSense script, on pages that carry an ad slot only.</li>
+        <li><strong>Do not consent</strong> saves your choice and closes the pop-up. The ad slot stays hidden; no Google advertising script loads and no advertising cookies are set.</li>
+        <li><strong>Manage options</strong> opens a second screen with <em>Strictly necessary</em> (always on) and a switch for <em>Advertising (Google AdSense)</em>, which is off unless you have already consented. From there you can choose <strong>Do not consent</strong>, <strong>Save choices</strong> (saves the switch as set) or <strong>Consent</strong>, or go <strong>Back</strong>.</li>
+      </ul>
+      <p>The pop-up stays until you choose; the Esc key does not close it. Until you choose, and if you choose Do not consent, no Google advertising script loads anywhere on the site and no advertising cookies are set. No non-personalised or “limited ads” request is made instead: without consent there are simply no ads. You do not have to consent to use the calculator or read the guides.</p>
+      <p>Your choice is saved in this browser under <code>thl-consent</code> as <code>v</code> (format version 3), <code>ads</code> (<code>true</code> or <code>false</code>) and <code>ts</code> (when you chose). It is not a cookie and is not sent to us. See the <a href="/cookies">cookie policy</a> for the full format.</p>
 
       <h2>Where ads can appear</h2>
       <ul>
@@ -60,7 +66,7 @@
       </ul>
 
       <h2>Changing your choice</h2>
-      <p>Use the <strong>Privacy preferences</strong> link at the bottom of any page to reopen the dialog and choose again. If you switch to Do not consent on a page where ads have already loaded, the page reloads so the ads stop. You can also clear site data for takehomelab.co.uk in your browser, and manage ad personalisation in <a href="https://myadcenter.google.com">Google’s ad settings</a>.</p>
+      <p>Use the <strong>Privacy preferences</strong> link at the bottom of any page to reopen the pop-up and choose again. If you switch to Do not consent on a page where ads have already loaded, the page reloads so the ads stop. You can also clear site data for takehomelab.co.uk in your browser, and manage ad personalisation in <a href="https://myadcenter.google.com">Google’s ad settings</a>.</p>
 
       <h2>Your calculator inputs</h2>
       <p>We do not sell your calculator inputs. Salary figures you type into the calculator stay in your browser for the calculation and are not passed to Google.</p>
