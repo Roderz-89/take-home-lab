@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Editorial policy — Take-Home Lab</title>
+  <meta name="description" content="How the Rodway Labs editorial team writes, checks and updates Take-Home Lab: roles, review process, sources, update cadence and corrections.">
   <link rel="canonical" href="https://takehomelab.co.uk/editorial-policy">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -19,7 +20,7 @@
   <meta property="og:image:alt" content="Take-Home Lab">
   <meta property="og:site_name" content="Take-Home Lab">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"Editorial policy","description":"","url":"https://takehomelab.co.uk/editorial-policy","dateModified":"2026-10-14","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"Editorial policy","item":"https://takehomelab.co.uk/editorial-policy"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"Editorial policy","description":"How the Rodway Labs editorial team writes, checks and updates Take-Home Lab: roles, review process, sources, update cadence and corrections.","url":"https://takehomelab.co.uk/editorial-policy","dateModified":"2026-10-17","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"Editorial policy","item":"https://takehomelab.co.uk/editorial-policy"}]}]}</script>
 </head>
 <body>
   <header class="site-header">
@@ -39,24 +40,46 @@
   <main class="section">
     <article class="wrap prose">
       <h1>Editorial policy</h1>
-      <p class="src">Updated 14 October 2026</p>
-      <p>Take-Home Lab is published by Rodway Labs, an independent UK publisher. No employer, payroll provider, bank or adviser pays for or approves our content.</p>
-      <h2>Who writes and checks</h2>
-      <p>Guides are written and edited by the Rodway Labs editorial team. We do not publish individual author names. Every £ figure is produced by the same <code>js/tax.js</code> engine that powers the calculator, then checked by hand, band by band, before publication. A guide is not published until its figures match the live calculator.</p>
-      <h2>Sources</h2>
-      <p>We use primary sources only for rates and thresholds: HMRC, GOV.UK and the Scottish Government. Each guide names its sources and the date they were last checked. The full list is on the <a href="/methodology">methodology</a> page.</p>
-      <h2>Review cadence</h2>
+      <p class="src">Updated 17 October 2026</p>
+      <p>Take-Home Lab is published by Rodway Labs, an independent UK publisher. No employer, payroll provider, bank, pension provider or adviser pays for, reviews or approves our content. This page explains who produces the calculator and guides, how every figure is checked, which sources we rely on, how often pages are reviewed and how we correct mistakes.</p>
+
+      <h2 id="editorial-team">Editorial team</h2>
+      <p>Everything on the site is produced by the Rodway Labs editorial team. We publish as a team rather than under individual names, and every page carries the same byline: “By the Rodway Labs editorial team”, with the date the page was last checked. The team works in three roles. One person can hold more than one role, but the same person never writes and checks the same page.</p>
+      <h3>Writer</h3>
+      <p>The writer drafts a guide around one clear question, for example “what does £40,000 leave after tax?” or “how does Plan 5 differ from Plan 2?”. Every £ figure in a draft comes from the calculator engine, never from memory or another website. The writer states the assumptions in plain words near the top of the page: tax year, region, pension and student loan settings, and the standard 1257L tax code.</p>
+      <h3>Checker</h3>
+      <p>The checker reads the draft against the primary sources and re-works the key figures by hand, band by band: personal allowance, each income tax slice, National Insurance and any loan or pension deduction. The checker also confirms that every link works, that the page says what it does not cover, and that nothing reads as personal advice. A page is not published, and an update is not released, until the checker signs it off.</p>
+      <h3>Model maintainer</h3>
+      <p>The model maintainer looks after <code>js/tax.js</code>, the engine behind the calculator and every guide. They compare each rate and threshold in the code with the official tables at the start of each tax year and whenever a source changes, run a fixed set of test salaries (including the edges at £12,570, £50,270, £100,000 and £125,140, and each student loan threshold), and regenerate the guide figures when the engine changes so that pages and calculator never disagree.</p>
+
+      <h2 id="review-process">Review process</h2>
+      <ol>
+        <li><strong>Draft.</strong> The writer produces the page from engine output and lists the sources used.</li>
+        <li><strong>Independent check.</strong> The checker re-works the figures by hand and compares them with the live calculator to the penny.</li>
+        <li><strong>Source check.</strong> Every rate and threshold is traced to an HMRC, GOV.UK or Scottish Government page for the right tax year.</li>
+        <li><strong>Plain-English read.</strong> The page is read for clarity and for anything that could be mistaken for personal tax, pension or financial advice.</li>
+        <li><strong>Publish and date.</strong> The page goes live with the date it was checked. That date is shown in the byline and in the page’s structured data.</li>
+      </ol>
+
+      <h2 id="sources">Sources</h2>
+      <p>We use primary sources only for rates and thresholds: HMRC (including <a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027">rates and thresholds for employers 2026 to 2027</a>), GOV.UK guidance on income tax, National Insurance and student loan repayments, and the Scottish Government’s <a href="https://www.gov.scot/publications/scottish-income-tax-rates-and-bands/pages/2026-to-2027/">Scottish Income Tax rates and bands</a>. We do not copy figures from other calculators, news articles or forums. Each guide names its sources and the date they were last checked, and the full list is on the <a href="/methodology#sources">methodology</a> page.</p>
+
+      <h2 id="update-cadence">Update cadence</h2>
       <ul>
         <li><strong>Each tax year:</strong> every rate, threshold and guide is re-checked before 6 April and the tax year label is updated.</li>
-        <li><strong>Mid-year changes:</strong> if HMRC, the Scottish Government or the Student Loans Company changes a figure, affected pages are updated and re-dated.</li>
+        <li><strong>Budgets and mid-year changes:</strong> if HMRC, the Scottish Government or the Student Loans Company changes a figure, the engine is updated first, then every affected page is regenerated, re-checked and re-dated.</li>
         <li><strong>Quarterly:</strong> links, sources and examples are re-read for accuracy and clarity.</li>
       </ul>
-      <p>Each page shows an “Updated” date. We change that date only when the page has actually been re-read.</p>
-      <h2>Corrections</h2>
-      <p>If you find an error, email <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a> or see <a href="/contact">contact</a>. Confirmed errors are fixed on the page and the date is updated.</p>
-      <h2>Independence and advertising</h2>
-      <p>Advertising never decides what we write or which figures we show. See the <a href="/advertising">advertising disclosure</a> and <a href="/affiliates">affiliate disclosure</a>.</p>
-      <p>Take-Home Lab is informational. It is not regulated tax, pension or financial advice.</p>
+      <p>We change a page’s date only when the page has actually been re-read or changed. A date never moves just to make a page look fresh.</p>
+
+      <h2 id="corrections">Corrections</h2>
+      <p>If you find an error, email <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a> or use the form on the <a href="/contact">contact</a> page. Please include the page address, the inputs you used and the figure you expected. We aim to reply within five working days. Every report is checked by someone other than the original writer. A confirmed error is fixed on the page and in the engine if needed, the page is re-dated, and any other page that used the same figure is corrected at the same time. If the mistake changed a headline figure, we add a short correction note to the page saying what changed.</p>
+
+      <h2 id="independence">Independence and advertising</h2>
+      <p>The site may show advertising, but advertising never decides what we write, which salaries we cover or which figures we show. Advertisers cannot see or influence pages before they are published, and we do not write sponsored guides. We have no affiliate links. See the <a href="/advertising">advertising disclosure</a> and <a href="/affiliates">affiliate disclosure</a>.</p>
+
+      <h2 id="limits">What we do not do</h2>
+      <p>Take-Home Lab is informational. It is not regulated tax, pension or financial advice, and Rodway Labs is not a regulated adviser. We do not see your payslip or HMRC record and cannot tell you what to do with a job offer. The <a href="/disclaimer">calculator disclaimer</a> lists what the model leaves out.</p>
     </article>
   </main>
   <footer>

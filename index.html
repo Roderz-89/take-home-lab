@@ -27,7 +27,7 @@
   <meta property="og:site_name" content="Take-Home Lab">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Ad script is injected only after advertising consent. -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebSite","@id":"https://takehomelab.co.uk/#site","name":"Take-Home Lab","url":"https://takehomelab.co.uk/","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"WebApplication","name":"Take-Home Lab UK take-home pay calculator 2026/27","url":"https://takehomelab.co.uk/#calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"publisher":{"@id":"https://takehomelab.co.uk/#org"},"dateModified":"2026-10-14"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebSite","@id":"https://takehomelab.co.uk/#site","name":"Take-Home Lab","url":"https://takehomelab.co.uk/","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"WebApplication","name":"Take-Home Lab UK take-home pay calculator 2026/27","url":"https://takehomelab.co.uk/#calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"publisher":{"@id":"https://takehomelab.co.uk/#org"},"dateModified":"2026-10-17"},{"@type":"FAQPage","@id":"https://takehomelab.co.uk/#faq","url":"https://takehomelab.co.uk/","mainEntity":[{"@type":"Question","name":"Why does my payslip differ from this calculator?","acceptedAnswer":{"@type":"Answer","text":"The calculator models a whole tax year on a standard 1257L tax code. Your payslip is worked out pay period by pay period, so a different or emergency tax code, a bonus month, overtime, benefits in kind or a different pension arrangement will move the figure. National Insurance and student loan repayments are also assessed each pay period rather than across the year. If the two disagree, trust the payslip and check your tax code in your HMRC personal tax account."}},{"@type":"Question","name":"How does salary sacrifice affect my pension?","acceptedAnswer":{"@type":"Answer","text":"The salary you give up is paid into your pension by your employer as an employer contribution, so the pension receives the whole sacrificed amount with no income tax or National Insurance taken off first. Your cash salary is lower, which can reduce things worked out from salary, such as some life cover, mortgage affordability checks and statutory pay. The salary sacrifice guide compares it with a net pay pension."}},{"@type":"Question","name":"Does the calculator save or send what I type?","acceptedAnswer":{"@type":"Answer","text":"No. The calculation runs in your browser using the published js/tax.js engine. Nothing you enter is sent to Rodway Labs or stored by the site."}},{"@type":"Question","name":"Which tax year and rates does it use?","acceptedAnswer":{"@type":"Answer","text":"The 2026/27 tax year, 6 April 2026 to 5 April 2027. Rates and thresholds are checked against HMRC and Scottish Government sources, listed on the methodology page."}}]}]}</script>
 </head>
 <body>
   <header class="site-header">
@@ -67,6 +67,7 @@
           <p class="badge">CALCULATOR</p>
           <h2>UK take-home pay — 2026/27</h2>
           <p class="hint">Personal allowance £12,570; tapered by £1 for every £2 of income above £100,000. Employee NI 8% then 2%. Updated 14 October 2026.</p>
+          <p class="howlink"><a href="/methodology#how-calculated">How this is calculated</a></p>
         </div>
         <div class="calc-grid">
           <form class="calc-form" id="th-form">
@@ -122,13 +123,14 @@
               <div class="bar-row"><span>Student loan</span><div class="track"><div class="fill fill-sl" id="bar-sl"></div></div><span id="cell-sl">—</span></div>
               <div class="bar-row"><span>Pension</span><div class="track"><div class="fill fill-pen" id="bar-pen"></div></div><span id="cell-pen">—</span></div>
             </div>
-            <table class="table">
+            <div class="tscroll" role="region" aria-label="Calculation summary (scrollable table)" tabindex="0"><table class="table">
               <tr><th>Gross used</th><td id="cell-gross">—</td></tr>
               <tr><th>Personal allowance in this run</th><td id="cell-pa">—</td></tr>
-            </table>
+            </table></div>
             <p class="hint">Income tax slices</p>
             <ul class="hint" id="tax-parts"></ul>
             <p class="method">Method: annual PAYE-style stack. Income tax on pay after personal allowance and any modelled pension relief. Employee Class 1 NI at 8% between £12,570 and £50,270 and 2% above, modelled on the year rather than each pay period. Student loan as a percentage of earnings above the plan threshold.</p>
+            <p class="howlink howlink-out"><a href="/methodology#how-calculated">How this is calculated</a>: annual PAYE, the personal allowance taper, Scottish bands, National Insurance, student loan thresholds and salary sacrifice, with HMRC and Scottish Government sources.</p>
             <p class="warn">Illustrative only — not a tax calculation you can file, not personalised advice, not an offer of credit. Blindness, marriage allowance, tax codes other than a standard 1257L, the High Income Child Benefit Charge, savings and dividends are omitted.</p>
           </div>
         </div>
@@ -280,6 +282,18 @@
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
   </aside>
+
+  <section class="section faq-section" aria-labelledby="faq-h">
+    <div class="wrap prose">
+      <section class="faq">
+      <h2 id="faq-h">Frequently asked questions</h2>
+      <details><summary>Why does my payslip differ from this calculator?</summary><div class="faq-a"><p>The calculator models a whole tax year on a standard 1257L tax code. Your payslip is worked out pay period by pay period, so a different or emergency tax code, a bonus month, overtime, benefits in kind or a different pension arrangement will move the figure. National Insurance and student loan repayments are also assessed each pay period rather than across the year. If the two disagree, trust the payslip and check your tax code in your <a href="https://www.gov.uk/personal-tax-account">HMRC personal tax account</a>.</p></div></details>
+      <details><summary>How does salary sacrifice affect my pension?</summary><div class="faq-a"><p>The salary you give up is paid into your pension by your employer as an employer contribution, so the pension receives the whole sacrificed amount with no income tax or National Insurance taken off first. Your cash salary is lower, which can reduce things worked out from salary, such as some life cover, mortgage affordability checks and statutory pay. The <a href="/guides/salary-sacrifice">salary sacrifice guide</a> compares it with a net pay pension.</p></div></details>
+      <details><summary>Does the calculator save or send what I type?</summary><div class="faq-a"><p>No. The calculation runs in your browser using the published <code>js/tax.js</code> engine. Nothing you enter is sent to Rodway Labs or stored by the site.</p></div></details>
+      <details><summary>Which tax year and rates does it use?</summary><div class="faq-a"><p>The 2026/27 tax year, 6 April 2026 to 5 April 2027. Rates and thresholds are checked against HMRC and Scottish Government sources, listed on the <a href="/methodology">methodology</a> page.</p></div></details>
+      </section>
+    </div>
+  </section>
   <script src="/js/thl-consent.js"></script>
   <footer>
     <div class="wrap foot-grid">

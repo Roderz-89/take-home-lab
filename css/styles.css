@@ -258,3 +258,31 @@ html.thl-cmp-open { overflow: hidden; }
   .calc-head h2 { font-size: 1.15rem; }
   .calc-form label { margin: 10px 0 4px; }
 }
+
+/* Editorial byline, methodology links, FAQ accordion, related guides, scrollable tables */
+.byline { font-size: 0.86rem; color: var(--slate-600); margin: -2px 0 12px; }
+.byline a { color: var(--accent); }
+.howlink { margin: 8px 0 0; font-size: 0.92rem; font-weight: 600; }
+.howlink a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); text-underline-offset: 3px; }
+.howlink-out { font-weight: 400; font-size: 0.85rem; color: var(--slate-600); margin-top: 8px; }
+.howlink-out a { font-weight: 600; min-height: 0; display: inline; }
+.howcalc { background: var(--navy-50); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 18px 8px; margin: 18px 0 24px; }
+.faq { margin: 24px 0; }
+.faq details { border: 1px solid var(--line); border-radius: 10px; background: var(--white); margin: 0 0 10px; }
+.faq summary { position: relative; display: flex; align-items: center; min-height: 44px; padding: 10px 46px 10px 16px; cursor: pointer; font-weight: 600; color: var(--foreground); list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 1.3rem; line-height: 1; color: var(--accent); }
+.faq details[open] summary::after { content: "\2212"; }
+.faq summary:focus-visible { outline: 2px solid var(--navy-700); outline-offset: 2px; border-radius: 10px; }
+.faq-a { padding: 0 16px 14px; }
+.faq-a p { margin: 0; }
+.faq-section { padding-top: 8px; }
+.related { margin: 24px 0; }
+.related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.related li { margin: 0; }
+.related a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); text-decoration: none; color: var(--navy-800); font-weight: 500; }
+.related a:hover { border-color: var(--accent); color: var(--accent); }
+.tscroll { overflow-x: auto; max-width: 100%; }
+.tw:focus-visible, .tscroll:focus-visible { outline: 2px solid var(--navy-700); outline-offset: 2px; }
+.tw { max-width: 100%; -webkit-overflow-scrolling: touch; }
+.tw-hint { font-size: 0.8rem; color: var(--slate-600); margin: -12px 0 16px; }
