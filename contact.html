@@ -20,7 +20,7 @@
   <meta property="og:image:alt" content="Take-Home Lab">
   <meta property="og:site_name" content="Take-Home Lab">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"Contact","description":"","url":"https://takehomelab.co.uk/contact","dateModified":"2026-10-14","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://takehomelab.co.uk/contact"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"Contact","description":"","url":"https://takehomelab.co.uk/contact","dateModified":"2026-10-17","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://takehomelab.co.uk/contact"}]}]}</script>
 </head>
 <body>
   <header class="site-header">
@@ -40,10 +40,36 @@
   <main class="section">
     <article class="wrap prose">
       <h1>Contact</h1>
-      <p class="src">Updated 14 October 2026 · Tax year 2026/27</p>
+      <p class="src">Updated 17 October 2026 · Tax year 2026/27</p>
       <p>Take-Home Lab is published by Rodway Labs, United Kingdom.</p>
       <p>Email: <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a></p>
       <p>We aim to reply within five working days. That is the same address published on the <a href="/about">about</a>, <a href="/advertising">advertising</a> and <a href="/privacy">privacy</a> pages.</p>
+      <h2 id="contact-form">Send us a message</h2>
+      <p>Use this form or email <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>; both reach the same Rodway Labs inbox. Fields marked * are required.</p>
+      <div class="form-status" id="cf-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+      <form class="contact-form" id="cf" action="/api/contact" method="post" novalidate>
+        <label for="cf-name">Name *</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+        <label for="cf-email">Email *</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="cf-email-hint">
+        <p class="hint" id="cf-email-hint">Only used to reply to you.</p>
+        <label for="cf-topic">Topic *</label>
+        <select id="cf-topic" name="topic" required>
+          <option value="figure">Report a figure error</option>
+          <option value="guide">Question about a guide or the calculator</option>
+          <option value="advertising">Advertising or partnership</option>
+          <option value="privacy">Privacy or data request</option>
+          <option value="other">Something else</option>
+        </select>
+        <label for="cf-message">Message *</label>
+        <textarea id="cf-message" name="message" rows="7" minlength="10" maxlength="5000" required aria-describedby="cf-message-hint"></textarea>
+        <p class="hint" id="cf-message-hint">For a figure error, include the page address, your inputs and the figure you expected. Please do not send payslips, tax codes or National Insurance numbers.</p>
+        <div class="hp" aria-hidden="true"><label for="cf-website">Leave this field empty</label><input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="t" id="cf-t" value="">
+        <input type="hidden" name="page" id="cf-page" value="">
+        <p class="form-privacy">We use your name, email and message only to reply. The form sends them by email to the Rodway Labs inbox; they are not added to a mailing list or shared, and are deleted within 12 months of the conversation ending. See the <a href="/privacy#contact-form-data">privacy notice</a>.</p>
+        <button class="btn" type="submit" id="cf-submit">Send message</button>
+      </form>
       <h2>Report a figure error</h2>
       <p>If a guide or the calculator gives a number you think is wrong, tell us. It helps to include:</p>
       <ul>
@@ -55,7 +81,7 @@
       <h2>What we cannot help with</h2>
       <p>We do not give personal tax, pension or financial advice by email, and we cannot see your payslip, tax code or HMRC record. If your question is “what should I do with this job offer?”, that is for you, a regulated adviser or HMRC. For your own tax code or a refund, use your <a href="https://www.gov.uk/personal-tax-account">HMRC personal tax account</a>.</p>
       <h2>Privacy</h2>
-      <p>Emails are used only to reply to you and are not added to a mailing list. The calculator runs in your browser and sends nothing to us. See the <a href="/privacy">privacy notice</a>.</p>
+      <p>Emails and form messages are used only to reply to you and are not added to a mailing list. The calculator runs in your browser and sends nothing to us. See the <a href="/privacy#contact-form-data">privacy notice</a>.</p>
     </article>
   </main>
   <footer>
@@ -96,5 +122,6 @@
   </footer>
   <script src="/js/thl-consent.js" defer></script>
   <script src="/js/nav.js" defer></script>
+  <script src="/js/contact.js" defer></script>
 </body>
 </html>

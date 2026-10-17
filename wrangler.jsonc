@@ -9,6 +9,12 @@
     "run_worker_first": true
   },
   "workers_dev": false,
+  "send_email": [
+    { "name": "CONTACT_EMAIL", "destination_address": "interactive.cad.uk@gmail.com" }
+  ],
+  "ratelimits": [
+    { "name": "CONTACT_RL", "namespace_id": "1701", "simple": { "limit": 3, "period": 60 } }
+  ],
   "routes": [
     { "pattern": "takehomelab.co.uk", "custom_domain": true },
     { "pattern": "www.takehomelab.co.uk", "custom_domain": true }
