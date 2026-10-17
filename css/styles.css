@@ -325,3 +325,11 @@ html.thl-cmp-open { overflow: hidden; }
 .tip summary { display: inline-flex; align-items: center; min-height: 44px; cursor: pointer; color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .tip summary:focus-visible { outline: 2px solid var(--navy-700); outline-offset: 2px; }
 .tip p { margin: 0 0 8px; background: var(--navy-50); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+/* salary-page callouts */
+.callouts { display: grid; gap: 14px; margin: 24px 0; }
+@media (min-width: 760px) { .callouts { grid-template-columns: 1fr 1fr; } }
+.callout { background: #fff; border: 1px solid var(--navy-200); border-left: 4px solid var(--brand-teal); border-radius: var(--radius); padding: 16px 18px; }
+.callout-border { border-left-color: var(--navy-700); }
+.callout p { margin: 0; }
+.callout p + p { margin-top: 6px; }
+.callout .callout-h { font-weight: 600; color: var(--brand-navy); }
