@@ -11,3 +11,5 @@ worker.js
 .gitignore
 .assetsignore
 README.md
+tests
+tests/**

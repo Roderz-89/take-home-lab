@@ -97,10 +97,20 @@
     const niUpper = Math.max(0, payForNi - NI_UEL);
     const ni = niBand * NI_MAIN + niUpper * NI_UPPER;
 
-    const slKey = input.studentLoan || "none";
-    const slDef = SL[slKey] || SL.none;
+    // Student loans (HMRC 2026/27): one undergraduate plan at 9% above its threshold
+    // plus, at the same time, a Postgraduate Loan at 6% above £21,000. Both are
+    // deducted on the same pay, independently. Back-compat: studentLoan "pgl" alone
+    // still means a Postgraduate Loan only.
+    let ugKey = input.studentLoan || "none";
+    let hasPgl = input.pgl === true || input.pgl === "1" || input.pgl === "true" || input.pgl === "on";
+    if (ugKey === "pgl") { ugKey = "none"; hasPgl = true; }
+    if (!SL[ugKey] || ugKey === "pgl") ugKey = "none";
     const slBase = payForNi;
-    const studentLoan = slBase > slDef.threshold ? (slBase - slDef.threshold) * slDef.rate : 0;
+    const ugDef = SL[ugKey];
+    const studentLoanUG = slBase > ugDef.threshold ? (slBase - ugDef.threshold) * ugDef.rate : 0;
+    const studentLoanPG = hasPgl && slBase > SL.pgl.threshold ? (slBase - SL.pgl.threshold) * SL.pgl.rate : 0;
+    const studentLoan = studentLoanUG + studentLoanPG;
+    const slDef = { label: ugKey !== "none" && hasPgl ? ugDef.label + " + Postgraduate" : hasPgl ? SL.pgl.label : ugDef.label };
 
     const pensionOut = scheme === "none" ? 0 : pensionCash;
     const takeHome = headline - tax - ni - studentLoan - pensionOut;
@@ -114,6 +124,10 @@
       parts,
       ni,
       studentLoan,
+      studentLoanUG,
+      studentLoanPG,
+      slPlan: ugKey,
+      hasPgl,
       slLabel: slDef.label,
       pensionOut,
       takeHome,
@@ -132,18 +146,39 @@
     el("cell-gross").textContent = money(r.headline);
     el("cell-tax").textContent = money(r.tax);
     el("cell-ni").textContent = money(r.ni);
-    el("cell-sl").textContent = money(r.studentLoan);
+    el("cell-sl").textContent = money(r.studentLoanUG);
+    if (el("cell-pgl")) el("cell-pgl").textContent = money(r.studentLoanPG);
     el("cell-pen").textContent = money(r.pensionOut);
     el("cell-net").textContent = money(r.takeHome);
     el("cell-pa").textContent = money(r.allowance);
 
-    const g = r.headline || 1;
-    const setW = (id, n) => { const nEl = document.getElementById(id); if (nEl) nEl.style.width = Math.min(100, (Math.max(0, n) / g) * 100) + "%"; };
-    setW("bar-keep", r.takeHome);
-    setW("bar-tax", r.tax);
-    setW("bar-ni", r.ni);
-    setW("bar-sl", r.studentLoan);
-    setW("bar-pen", r.pensionOut);
+    // Stacked breakdown bar + legend (£ and % of gross).
+    const g = r.headline;
+    const segs = { keep: Math.max(0, r.takeHome), tax: r.tax, ni: r.ni, pen: r.pensionOut, sl: r.studentLoanUG, pgl: r.studentLoanPG };
+    const names = { keep: "Take-home", tax: "Income tax", ni: "National Insurance", pen: "Pension", sl: r.slPlan && r.slPlan !== "none" ? "Student loan (" + (r.slPlan.replace("plan", "Plan ")) + ")" : "Student loan", pgl: "Postgraduate Loan" };
+    const pct = (n) => (g > 0 ? (n / g) * 100 : 0);
+    const fmtPct = (n) => pct(n).toLocaleString("en-GB", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + "%";
+    const bar = el("bd-bar");
+    if (bar) {
+      const said = [];
+      bar.querySelectorAll(".seg").forEach((seg) => {
+        const k = seg.getAttribute("data-k");
+        const w = g > 0 ? Math.min(100, pct(segs[k])) : 0;
+        seg.style.width = w + "%";
+        seg.hidden = w <= 0;
+        seg.title = names[k] + ": " + money(segs[k]) + " (" + fmtPct(segs[k]) + ")";
+        if (segs[k] > 0) said.push(names[k] + " " + money(segs[k]) + ", " + fmtPct(segs[k]));
+      });
+      bar.setAttribute("aria-label", g > 0 ? "Breakdown of " + money(g) + " gross pay: " + said.join("; ") : "No gross pay entered");
+      document.querySelectorAll(".bd-legend li").forEach((li) => {
+        const k = li.getAttribute("data-k");
+        const pc = document.getElementById("pct-" + k);
+        if (pc) pc.textContent = "(" + fmtPct(segs[k]) + ")";
+        li.classList.toggle("is-zero", !(segs[k] > 0));
+        if (k === "pgl") li.hidden = !r.hasPgl;
+      });
+      if (el("name-sl")) el("name-sl").textContent = names.sl;
+    }
 
     const parts = document.getElementById("tax-parts");
     if (parts) {
@@ -160,7 +195,8 @@
       region: document.getElementById("region").value,
       pensionType: document.getElementById("pensionType").value,
       pensionPct: document.getElementById("pensionPct").value,
-      studentLoan: document.getElementById("studentLoan").value
+      studentLoan: document.getElementById("studentLoan").value,
+      pgl: !!(document.getElementById("pgl") && document.getElementById("pgl").checked)
     };
   }
 
@@ -179,6 +215,8 @@
       const node = document.getElementById(k);
       if (node) node.value = e[k];
     });
+    const pg = document.getElementById("pgl");
+    if (pg) pg.checked = !!e.pgl;
     run();
     document.getElementById("calculator").scrollIntoView({ behavior: "smooth" });
   }
