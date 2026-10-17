@@ -81,34 +81,36 @@
     overlay.hidden = true;
     overlay.innerHTML =
       '<div class="thl-cmp" role="dialog" aria-modal="true" aria-labelledby="thl-cmp-title" aria-describedby="thl-cmp-intro" tabindex="-1">' +
-        '<h2 id="thl-cmp-title">We value your privacy</h2>' +
-        '<p id="thl-cmp-intro">Rodway Labs and our advertising partners, including Google AdSense, ask you to consent to cookies and device storage for personalised advertising and ad measurement.</p>' +
-        '<div class="thl-cmp-purposes">' +
-          '<details><summary>Store and/or access information on a device</summary>' +
-            '<p>Cookies, device identifiers or similar data may be stored on or read from your device. If you allow advertising, Google may set cookies such as <code>__gads</code>, <code>__gpi</code> and <code>__eoi</code> on this site and <code>IDE</code> on doubleclick.net. Take-Home Lab itself stores only your choice, under <code>thl-consent</code> in this browser\u2019s localStorage; that is essential and always on.</p>' +
+        '<div class="thl-cmp-body">' +
+          '<h2 id="thl-cmp-title">Take-Home Lab asks for your consent to use your personal data to:</h2>' +
+          '<ul class="thl-cmp-list">' +
+            '<li>Personalised advertising and content, advertising and content measurement, audience research and services development</li>' +
+            '<li>Store and/or access information on a device</li>' +
+          '</ul>' +
+          '<details class="thl-cmp-purposes"><summary>Learn more</summary>' +
+            '<div class="thl-cmp-more">' +
+              '<p><strong>Personalised advertising and ad measurement (Google).</strong> Google AdSense may use information such as the pages you view and data from cookies to choose ads that are relevant to you, measure how they perform and prevent ad fraud. This happens only if you choose Consent or switch advertising on under Manage options. Otherwise the AdSense script is never loaded and no ads are requested.</p>' +
+              '<p><strong>Store and/or access information on a device.</strong> If you allow advertising, Google may set cookies such as <code>__gads</code>, <code>__gpi</code> and <code>__eoi</code> on this site and <code>IDE</code> on doubleclick.net. Take-Home Lab itself stores only your choice, under <code>thl-consent</code> in this browser\u2019s localStorage; that is essential and always on.</p>' +
+            '</div>' +
           '</details>' +
-          '<details><summary>Personalised advertising and ad measurement (Google)</summary>' +
-            '<p>Google AdSense may use information such as the pages you view and data from cookies to choose ads that are relevant to you, measure how they perform and prevent ad fraud. This happens only if you choose Accept All or switch advertising on under Options. Otherwise the AdSense script is never loaded and no ads are requested.</p>' +
-          '</details>' +
-        '</div>' +
-        '<p class="thl-cmp-note">You don\u2019t need to consent to use the calculator, and your choices apply to this site only.</p>' +
-        '<div class="thl-cmp-options" id="thl-cmp-options" hidden>' +
-          '<div class="thl-cmp-row">' +
-            '<div><strong>Essential</strong><br><span>Remembers your privacy choice on this device. Needed for the site to work.</span></div>' +
-            '<span class="thl-cmp-always">Always on</span>' +
+          '<p id="thl-cmp-intro">Your personal data will be processed and information from your device (cookies, unique identifiers, and other device data) may be stored by, accessed by and shared with <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google, our advertising partner</a>, or used specifically by this site. You can change or withdraw your consent at any time with <strong>Privacy preferences</strong> at the bottom of every page.</p>' +
+          '<div class="thl-cmp-options" id="thl-cmp-options" hidden>' +
+            '<div class="thl-cmp-row">' +
+              '<div><strong>Strictly necessary</strong><br><span>Remembers your privacy choice on this device. Needed for the site to work.</span></div>' +
+              '<span class="thl-cmp-always">Always on</span>' +
+            '</div>' +
+            '<div class="thl-cmp-row">' +
+              '<label for="thl-cmp-ads"><strong>Personalised advertising and ad measurement (Google)</strong><br><span>Lets Google AdSense store and/or access information on your device to show personalised ads and measure them. Off means no ads are loaded.</span></label>' +
+              '<input type="checkbox" role="switch" id="thl-cmp-ads" class="thl-cmp-switch">' +
+            '</div>' +
           '</div>' +
-          '<div class="thl-cmp-row">' +
-            '<label for="thl-cmp-ads"><strong>Personalised advertising and ad measurement (Google)</strong><br><span>Lets Google AdSense store and/or access information on your device to show personalised ads and measure them.</span></label>' +
-            '<input type="checkbox" role="switch" id="thl-cmp-ads" class="thl-cmp-switch">' +
-          '</div>' +
-          '<div class="thl-cmp-actions">' +
-            '<button type="button" class="thl-cmp-btn" data-thl-act="essential">Essential only</button>' +
-            '<button type="button" class="thl-cmp-btn thl-cmp-primary" data-thl-act="save">Save choices</button>' +
-          '</div>' +
+          '<p class="thl-cmp-note">You don\u2019t need to consent to use the calculator. Your choices apply to this site only. More in our <a href="/privacy">privacy policy</a> and <a href="/cookies">cookie policy</a>.</p>' +
         '</div>' +
         '<div class="thl-cmp-actions thl-cmp-main">' +
-          '<button type="button" class="thl-cmp-btn" data-thl-act="options" aria-expanded="false" aria-controls="thl-cmp-options">Options</button>' +
-          '<button type="button" class="thl-cmp-btn thl-cmp-primary" data-thl-act="all">Accept All</button>' +
+          '<button type="button" class="thl-cmp-btn" data-thl-act="options" aria-expanded="false" aria-controls="thl-cmp-options">Manage options</button>' +
+          '<button type="button" class="thl-cmp-btn thl-cmp-primary" data-thl-act="essential">Do not consent</button>' +
+          '<button type="button" class="thl-cmp-btn thl-cmp-save" data-thl-act="save">Save choices</button>' +
+          '<button type="button" class="thl-cmp-btn thl-cmp-primary" data-thl-act="all">Consent</button>' +
         '</div>' +
       '</div>';
     doc.body.appendChild(overlay);
