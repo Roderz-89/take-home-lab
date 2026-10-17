@@ -254,7 +254,7 @@ html.thl-cmp-open { overflow: hidden; }
 .howlink { margin: 8px 0 0; font-size: 0.92rem; font-weight: 600; }
 .howlink a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); text-underline-offset: 3px; }
 .howlink-out { font-weight: 400; font-size: 0.85rem; color: var(--slate-600); margin-top: 8px; }
-.howlink-out a { font-weight: 600; min-height: 0; display: inline; }
+.howlink-out a { font-weight: 600; }
 .howcalc { background: var(--navy-50); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 18px 8px; margin: 18px 0 24px; }
 .faq { margin: 24px 0; }
 .faq details { border: 1px solid var(--line); border-radius: 10px; background: var(--white); margin: 0 0 10px; }
@@ -333,3 +333,12 @@ html.thl-cmp-open { overflow: hidden; }
 .callout p { margin: 0; }
 .callout p + p { margin-top: 6px; }
 .callout .callout-h { font-weight: 600; color: var(--brand-navy); }
+/* phase 3: thumb-friendly targets (>=44px) */
+.trust-bar a, .byline a { display: inline-block; padding: 12px 0; margin: -12px 0; }
+.linkish, .morelinks a, .table td a { display: inline-flex; align-items: center; min-height: 44px; }
+/* 2026/27 trust badge */
+.tybadge { display: inline-block; margin: 4px 0 8px; padding: 4px 12px; border: 1px solid var(--navy-200); border-radius: 14px; background: #e8f6f7; color: var(--brand-navy); font-size: 0.8rem; font-weight: 600; line-height: 1.4; }
+.tybadge::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; background: var(--brand-teal); vertical-align: 1px; }
+.tybadge time { white-space: nowrap; }
+.byline .tybadge { margin: 0 8px 6px 0; }
+.byline .by { display: inline-block; }

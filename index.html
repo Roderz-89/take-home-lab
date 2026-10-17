@@ -66,17 +66,18 @@
         <div class="calc-head">
           <p class="badge">CALCULATOR</p>
           <h2>UK take-home pay — 2026/27</h2>
-          <p class="hint">Personal allowance £12,570; tapered by £1 for every £2 of income above £100,000. Employee NI 8% then 2%. Updated 14 October 2026.</p>
+          <p class="tybadge">Updated for the 2026/27 tax year · Checked <time datetime="2026-10-17">17 October 2026</time></p>
+          <p class="hint">Personal allowance £12,570; tapered by £1 for every £2 of income above £100,000. Employee NI 8% then 2%.</p>
           <p class="howlink"><a href="/methodology#how-calculated">How this is calculated</a></p>
         </div>
         <div class="calc-grid">
           <form class="calc-form" id="th-form">
             <label for="gross">Gross annual salary (£)</label>
-            <input id="gross" name="gross" type="number" min="0" step="100" value="35000">
+            <input id="gross" name="gross" type="number" min="0" step="100" value="35000" inputmode="decimal">
             <div class="row-2">
               <div>
                 <label for="bonus">Annual bonus (£)</label>
-                <input id="bonus" name="bonus" type="number" min="0" step="100" value="0">
+                <input id="bonus" name="bonus" type="number" min="0" step="100" value="0" inputmode="decimal">
               </div>
               <div>
                 <label for="region">Tax region</label>
@@ -97,7 +98,7 @@
               </div>
               <div>
                 <label for="pensionPct">Pension % of gross</label>
-                <input id="pensionPct" type="number" min="0" max="40" step="0.5" value="0">
+                <input id="pensionPct" type="number" min="0" max="40" step="0.5" value="0" inputmode="decimal">
               </div>
             </div>
             <p class="hint">Net pay reduces taxable pay, not NI. Salary sacrifice reduces both in this model. Your scheme rules can differ.</p>
