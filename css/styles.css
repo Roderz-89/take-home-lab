@@ -167,7 +167,10 @@ footer li a, footer li button { display: inline-flex; align-items: center; min-h
 /* AdSense unit shell (unchanged behaviour) */
 .ad-slot { margin: 28px auto; max-width: min(1152px, calc(100% - 32px)); text-align: center; }
 .ad-slot .ad-label { margin: 0 0 8px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-500); }
-.ad-slot ins.adsbygoogle { display: block; min-height: 90px; width: 100%; }
+.ad-slot ins.adsbygoogle { display: block; min-height: 280px; width: 100%; }
+.ad-slot.ad-leaderboard ins.adsbygoogle { min-height: 250px; }
+/* Collapse a slot (label + reserved space) if Google leaves it unfilled, as on Remortgage Lab. */
+.ad-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]) { display: none; }
 .prose .ad-slot { max-width: 100%; margin: 28px 0; }
 @media print { .ad-slot { display: none !important; } }
 
