@@ -18,6 +18,8 @@
     }
   }
   check();
+  window.addEventListener("load", check);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(check);
   var t;
   window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(check, 150); });
 })();
