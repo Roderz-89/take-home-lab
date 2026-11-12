@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Methodology — Take-Home Lab</title>
-  <meta name="description" content="How the Take-Home Lab 2026/27 calculator stacks income tax, National Insurance, one student loan and a simple pension. Illustrative only.">
+  <meta name="description" content="How the Take-Home Lab 2026/27 calculator stacks income tax, National Insurance, student loans and a simple pension. Illustrative only.">
   <meta name="google-adsense-account" content="ca-pub-7612291779397704">
   <meta property="og:title" content="Methodology — Take-Home Lab">
-  <meta property="og:description" content="How the Take-Home Lab 2026/27 calculator stacks income tax, National Insurance, one student loan and a simple pension. Illustrative only.">
+  <meta property="og:description" content="How the Take-Home Lab 2026/27 calculator stacks income tax, National Insurance, student loans and a simple pension. Illustrative only.">
   <meta property="og:url" content="https://takehomelab.co.uk/methodology">
   <meta property="og:type" content="article">
   <link rel="canonical" href="https://takehomelab.co.uk/methodology">
@@ -25,7 +25,7 @@
   <meta property="og:image:alt" content="Take-Home Lab">
   <meta property="og:site_name" content="Take-Home Lab">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"How the calculator stacks a packet","description":"How the Take-Home Lab 2026/27 calculator stacks income tax, National Insurance, one student loan and a simple pension. Illustrative only.","url":"https://takehomelab.co.uk/methodology","dateModified":"2026-10-19","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"How the calculator stacks a packet","item":"https://takehomelab.co.uk/methodology"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"How the calculator stacks a packet","description":"How the Take-Home Lab 2026/27 calculator stacks income tax, National Insurance, student loans and a simple pension. Illustrative only.","url":"https://takehomelab.co.uk/methodology","dateModified":"2026-11-12","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"How the calculator stacks a packet","item":"https://takehomelab.co.uk/methodology"}]}]}</script>
 </head>
 <body>
   <header class="site-header">
@@ -46,13 +46,13 @@
     <article class="wrap prose">
 <p class="badge">METHOD</p>
 <h1>How the calculator stacks a packet</h1>
-<p class="src">Updated 19 October 2026 · Tax year 2026/27</p>
+<p class="src">Updated 12 November 2026 · Tax year 2026/27</p>
 <p>Take-Home Lab runs an annual PAYE-style stack in the browser. Nothing you type is sent to Rodway Labs. The result is an illustration with the assumptions below, not a figure you can file or budget from without checking a real payslip.</p>
 
 <section class="howcalc" id="how-calculated" aria-labelledby="hc-h">
 <h2 id="hc-h">How this is calculated — at a glance</h2>
 <ul>
-  <li><strong>Annual PAYE-style stack.</strong> The calculator works on the whole tax year: gross pay, minus any modelled pension, then income tax, employee National Insurance and one student loan. Real payroll does the same sums each pay period.</li>
+  <li><strong>Annual PAYE-style stack.</strong> The calculator works on the whole tax year: gross pay, minus any modelled pension, then income tax, employee National Insurance and student loans. Real payroll does the same sums each pay period.</li>
   <li><strong>Personal allowance taper.</strong> The £12,570 allowance falls by £1 for every £2 of income above £100,000 and is gone at £125,140, which makes the effective income tax rate 60% in that band.</li>
   <li><strong>Scottish bands.</strong> If you choose Scotland, income tax uses the six 2026/27 Scottish bands (19%, 20%, 21%, 42%, 45%, 48%). National Insurance and student loans do not change.</li>
   <li><strong>National Insurance.</strong> Employee Class 1 at 8% between £12,570 and £50,270, then 2%, modelled on the year.</li>
@@ -65,11 +65,11 @@
 <h2>Order of the stack</h2>
 <ol>
   <li>Start from gross annual pay (salary, or hourly rate × hours × paid weeks).</li>
-  <li>Apply pension treatment if selected: net pay reduces taxable pay only; salary sacrifice reduces taxable pay and NI-able earnings in this model.</li>
+  <li>Apply pension treatment if selected: net pay reduces taxable pay only; salary sacrifice comes off gross pay before anything else, so it reduces taxable pay, NI-able earnings and the pay used for student loans.</li>
   <li>Income tax on taxable pay after the personal allowance (and Scottish bands where chosen).</li>
   <li>Employee Class 1 National Insurance on NI-able earnings for the year.</li>
   <li>Student loans, if selected: one undergraduate plan at 9% above its threshold, plus a Postgraduate Loan at 6% above £21,000 when ticked.</li>
-  <li>Take-home = gross − tax − NI − loan − employee pension contribution in the model.</li>
+  <li>Take-home = gross − tax − NI − loans − any net pay pension contribution. A salary-sacrifice contribution is not taken off again here, because it already came off gross pay in step 2.</li>
 </ol>
 
 <h2>Income tax</h2>
@@ -85,8 +85,8 @@
 <p>A percentage of gross. Net pay reduces taxable pay, not NI, in this model. Salary sacrifice reduces both. Relief at source is not modelled. The employer booklet decides which design a scheme actually is.</p>
 
 <h2 id="thresholds">Thresholds used for 2026/27</h2>
-<p>These are the exact values in <code>js/tax.js</code>. Income tax bands are applied to taxable pay after the personal allowance.</p>
-<div class="tw" role="region" aria-label="Thresholds used for 2026/27 (scrollable table)" tabindex="0"><table class="table"><thead><tr><th>Item</th><th>Value</th><th>Rate</th></tr></thead><tbody><tr><td>Personal allowance</td><td>£12,570</td><td>0%</td></tr><tr><td>Allowance taper</td><td>£100,000 to £125,140</td><td>£1 lost per £2</td></tr><tr><td>rUK basic rate</td><td>taxable £0 to £37,700</td><td>20%</td></tr><tr><td>rUK higher rate</td><td>to £125,140 income</td><td>40%</td></tr><tr><td>rUK additional rate</td><td>above £125,140</td><td>45%</td></tr><tr><td>Scottish starter</td><td>£12,571 to £16,537</td><td>19%</td></tr><tr><td>Scottish basic</td><td>£16,538 to £29,526</td><td>20%</td></tr><tr><td>Scottish intermediate</td><td>£29,527 to £43,662</td><td>21%</td></tr><tr><td>Scottish higher</td><td>£43,663 to £75,000</td><td>42%</td></tr><tr><td>Scottish advanced</td><td>£75,001 to £125,140</td><td>45%</td></tr><tr><td>Scottish top</td><td>above £125,140</td><td>48%</td></tr><tr><td>NI primary threshold to upper earnings limit</td><td>£12,570 to £50,270</td><td>8%</td></tr><tr><td>NI above upper earnings limit</td><td>above £50,270</td><td>2%</td></tr><tr><td>Plan 1 student loan</td><td>above £26,900</td><td>9%</td></tr><tr><td>Plan 2 student loan</td><td>above £29,385</td><td>9%</td></tr><tr><td>Plan 4 student loan</td><td>above £33,795</td><td>9%</td></tr><tr><td>Plan 5 student loan</td><td>above £25,000</td><td>9%</td></tr><tr><td>Postgraduate loan</td><td>above £21,000</td><td>6%</td></tr></tbody></table></div><p class="tw-hint" hidden>Scroll sideways to see the whole table →</p>
+<p>These are the exact values in <code>js/tax.js</code>. Income tax bands are applied to taxable pay after the personal allowance; the band rows below show the equivalent gross income for someone with the standard £12,570 allowance.</p>
+<div class="tw" role="region" aria-label="Thresholds used for 2026/27 (scrollable table)" tabindex="0"><table class="table"><thead><tr><th>Item</th><th>Value</th><th>Rate</th></tr></thead><tbody><tr><td>Personal allowance</td><td>£12,570</td><td>0%</td></tr><tr><td>Allowance taper</td><td>£100,000 to £125,140</td><td>£1 lost per £2</td></tr><tr><td>rUK basic rate</td><td>£12,571 to £50,270</td><td>20%</td></tr><tr><td>rUK higher rate</td><td>£50,271 to £125,140</td><td>40%</td></tr><tr><td>rUK additional rate</td><td>over £125,140</td><td>45%</td></tr><tr><td>Scottish starter</td><td>£12,571 to £16,537</td><td>19%</td></tr><tr><td>Scottish basic</td><td>£16,538 to £29,526</td><td>20%</td></tr><tr><td>Scottish intermediate</td><td>£29,527 to £43,662</td><td>21%</td></tr><tr><td>Scottish higher</td><td>£43,663 to £75,000</td><td>42%</td></tr><tr><td>Scottish advanced</td><td>£75,001 to £125,140</td><td>45%</td></tr><tr><td>Scottish top</td><td>above £125,140</td><td>48%</td></tr><tr><td>NI primary threshold to upper earnings limit</td><td>£12,570 to £50,270</td><td>8%</td></tr><tr><td>NI above upper earnings limit</td><td>above £50,270</td><td>2%</td></tr><tr><td>Plan 1 student loan</td><td>above £26,900</td><td>9%</td></tr><tr><td>Plan 2 student loan</td><td>above £29,385</td><td>9%</td></tr><tr><td>Plan 4 student loan</td><td>above £33,795</td><td>9%</td></tr><tr><td>Plan 5 student loan</td><td>above £25,000</td><td>9%</td></tr><tr><td>Postgraduate loan</td><td>above £21,000</td><td>6%</td></tr></tbody></table></div><p class="tw-hint" hidden>Scroll sideways to see the whole table →</p>
 <h2 id="salary-sacrifice">Salary sacrifice treatment</h2>
 <p>With salary sacrifice, you agree a lower cash salary and your employer pays the difference into your pension. The model takes the sacrificed percentage off gross before income tax, National Insurance and the student loan calculation, so all three fall. With a net pay arrangement, the contribution comes off before income tax only; NI and student loan are worked on the full salary. Employer contributions, any employer NI saving passed on to you, and the National Minimum Wage floor are outside the model. HMRC explains the rules in <a href="https://www.gov.uk/guidance/salary-sacrifice-and-the-effects-on-paye">salary sacrifice and the effects on PAYE</a>.</p>
 
@@ -115,6 +115,17 @@
   <li>Income tax 20% × £27,430: <strong>£5,486.00</strong> · NI 8% × £27,430: <strong>£2,194.40</strong></li>
   <li>Plan 2: 9% × (£40,000 − £29,385) = 9% × £10,615 = <strong>£955.35</strong></li>
   <li>Illustrated take-home: <strong>£31,364.25 a year</strong> (£2,613.69 a month)</li>
+</ul>
+
+<h2 id="changes-2027-28">Known changes for 2027/28 (from 6 April 2027)</h2>
+<p>The calculator stays on 2026/27 until the new tax year. What is already announced, as at 12 November 2026:</p>
+<ul>
+  <li><strong>Income tax and employee NI (England, Wales, Northern Ireland):</strong> the Budget on 28 October 2026 left the rates unchanged. The £12,570 personal allowance, the £50,270 higher-rate threshold and the NI thresholds stay frozen; the freeze runs to April 2031.</li>
+  <li><strong>Scotland:</strong> 2027/28 Scottish bands are set at the Scottish Budget and are not published yet. Scottish figures here stay on 2026/27 until they are.</li>
+  <li><strong>Plan 2 student loan:</strong> the £29,385 threshold is frozen for three years from April 2027. Plan 1, Plan 4 and Plan 5 thresholds for 2027/28 will be checked when HMRC publishes them.</li>
+  <li><strong>National Living Wage:</strong> rises by 3.9% from 1 April 2027.</li>
+  <li><strong>Savings and property income:</strong> tax rates on these rise from April 2027. The calculator only models employment income, so this does not change its results.</li>
+  <li><strong>Salary sacrifice:</strong> from April 2029 only the first £2,000 a year of pension contributions made by salary sacrifice will be free of National Insurance.</li>
 </ul>
 
 <h2 id="sources">Sources</h2>
@@ -177,7 +188,7 @@
         </ul>
       </div>
     </div>
-    <div class="wrap legal">© 2026 Take-Home Lab · Take-Home Lab is published by Rodway Labs. Informational only. Rodway Labs is not a regulated tax or financial adviser. Rates last checked 14 October 2026. Contact: <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>.</div>
+    <div class="wrap legal">© 2026 Take-Home Lab · Take-Home Lab is published by Rodway Labs. Informational only. Rodway Labs is not a regulated tax or financial adviser. Rates last checked 12 November 2026. Contact: <a href="mailto:hello@takehomelab.co.uk">hello@takehomelab.co.uk</a>.</div>
   </footer>
   <script src="/js/thl-consent.js" defer></script>
   <script src="/js/nav.js" defer></script>
