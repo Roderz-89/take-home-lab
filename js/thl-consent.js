@@ -12,8 +12,9 @@
  *             AdSense tag. adsbygoogle.js loads on slot pages for everyone; this
  *             pop-up is not rendered; "Privacy preferences" calls
  *             googlefc.showRevocationMessage() on slot pages and goes to /cookies
- *             elsewhere. To switch, change CONSENT_MODE to "google" and update the
- *             consent wording on /privacy, /cookies and /advertising.
+ *             elsewhere (it opens /?privacy-preferences, which shows Google's message).
+ *             CURRENT MODE since 12 Nov 2026. Requires a published European
+ *             regulations message in AdSense > Privacy & messaging.
  *
  * Storage versions:
  *   v3 (current) {v:3, ads:boolean, ts:ISO string}  — same fields as Remortgage Lab.
@@ -29,7 +30,7 @@
   if (window.__thlConsentInit) return;
   window.__thlConsentInit = true;
 
-  var CONSENT_MODE = "custom"; // "custom" | "google"
+  var CONSENT_MODE = "google"; // "custom" | "google"
   var KEY = "thl-consent";
   var VERSION = 3;
   var SRC = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7612291779397704";
@@ -254,15 +255,9 @@
   /* ---------- footer "Privacy preferences" ---------- */
   function privacyPreferences() {
     if (CONSENT_MODE === "custom") { open(); return; }
-    if (scriptPresent()) {
-      window.googlefc = window.googlefc || {};
-      window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
-      window.googlefc.callbackQueue.push(function () {
-        if (window.googlefc.showRevocationMessage) window.googlefc.showRevocationMessage();
-      });
-      return;
-    }
-    location.href = "/cookies";
+    if (scriptPresent()) { showGoogleRevocation(); return; }
+    // Pages without an ad slot never load Google: reopen the choice on the home page.
+    location.href = "/?privacy-preferences";
   }
   window.thlPrivacyPreferences = privacyPreferences;
   doc.addEventListener("click", function (e) {
@@ -283,8 +278,20 @@
     else if (c && !c.ads && window.__thlAds) location.reload();
   });
 
+  function showGoogleRevocation() {
+    window.googlefc = window.googlefc || {};
+    window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
+    window.googlefc.callbackQueue.push(function () {
+      if (window.googlefc.showRevocationMessage) window.googlefc.showRevocationMessage();
+    });
+  }
+
   function init() {
-    if (CONSENT_MODE === "google") { loadAds(); return; }
+    if (CONSENT_MODE === "google") {
+      loadAds();
+      if (location.search.indexOf("privacy-preferences") !== -1 && scriptPresent()) showGoogleRevocation();
+      return;
+    }
     var c = getConsent();
     if (c && c.ads) loadAds();
     else setSlots(false);
