@@ -19,7 +19,7 @@
   <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#062E62">
+  <meta name="theme-color" content="#0B3D2E">
   <meta property="og:image" content="https://takehomelab.co.uk/brand/og-takehomelab.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -64,11 +64,8 @@
     <div class="wrap">
       <div class="calc-card">
         <div class="calc-head">
-          <p class="badge">CALCULATOR</p>
           <h2>UK take-home pay — 2026/27</h2>
           <p class="tybadge">Updated for the 2026/27 tax year · Checked <time datetime="2026-11-12">12 November 2026</time></p>
-          <p class="hint">Personal allowance £12,570; tapered by £1 for every £2 of income above £100,000. Employee NI 8% then 2%.</p>
-          <p class="howlink"><a href="/methodology#how-calculated">How this is calculated</a></p>
         </div>
         <div class="calc-grid">
           <form class="calc-form" id="th-form">
@@ -116,11 +113,15 @@
               <summary>How two loans are deducted</summary>
               <p>If you have an undergraduate plan and a Postgraduate Loan, your employer takes both from the same pay at once: 9% of pay above your plan’s threshold plus 6% of pay above £21,000. On £35,000 with Plan 2 that is £505.35 plus £840.00, so £1,345.35 a year. Holding two undergraduate plans is different: HMRC takes one 9% deduction above the lowest of their thresholds, so choose the plan with the lower threshold. Source: <a href="https://www.gov.uk/repaying-your-student-loan/what-you-pay">GOV.UK, repaying your student loan</a>.</p>
             </details>
+            <p class="hint">Personal allowance £12,570; tapered by £1 for every £2 of income above £100,000. Employee NI 8% then 2%.</p>
+            <p class="howlink"><a href="/methodology#how-calculated">How this is calculated</a></p>
           </form>
-          <div class="calc-out">
-            <p class="hint">Estimated take-home, 2026/27</p>
-            <div class="result-hero" id="out-annual">—</div>
-            <div class="result-sub"><span id="out-monthly">—</span> · <span id="out-weekly">—</span></div>
+          <div class="calc-out" id="result">
+            <div class="netpay">
+              <p class="hint">Estimated take-home, 2026/27</p>
+              <div class="result-hero" id="out-annual" aria-live="polite">—</div>
+              <div class="result-sub"><span id="out-monthly">—</span> · <span id="out-weekly">—</span></div>
+            </div>
             <div class="breakdown">
               <p class="bd-title" id="bd-title">Where each £ of gross pay goes</p>
               <div class="bd-bar" id="bd-bar" role="img" aria-label="Breakdown of gross pay">
@@ -167,6 +168,7 @@
     </div>
   </section>
 
+  <div class="sticky-result" id="sticky-result" aria-hidden="true"><div><span>Take-home</span><strong id="sticky-monthly">—</strong></div><a href="#result" tabindex="-1">See breakdown</a></div>
   <section class="hero hero-after" aria-label="About this calculator">
     <div class="wrap hero-grid">
       <div>
@@ -190,7 +192,6 @@
       </div>
       <div>
         <div class="panel">
-          <p style="letter-spacing:.08em;font-size:.72rem;margin:0 0 8px;color:#94a3b8;">POSITIONING</p>
           <h2>The headline salary is not the packet</h2>
           <p>Tax bands, National Insurance, student loan and how your pension is taken often move the number more than the offer letter suggests. Run the illustration before you compare two jobs.</p>
           <a class="btn" href="#calculator">Calculate take-home</a>
@@ -211,77 +212,77 @@
       <p>Each guide uses a worked example and links back to the calculator. Updated 12 November 2026.</p>
       <div class="cards">
         <a class="card" href="/guides/pay-rise">
-          <span class="badge">GUIDE</span>
+          
           <h3>What a £5,000 pay rise is worth</h3>
           <p>Gross versus packet once basic-rate tax and NI have taken their slice.</p>
         </a>
         <a class="card" href="/guides/salary-sacrifice">
-          <span class="badge">GUIDE</span>
+          
           <h3>Salary sacrifice versus net pay</h3>
           <p>Why two 5% pensions do not leave the same amount in the bank.</p>
         </a>
         <a class="card" href="/guides/scotland-vs-ruk">
-          <span class="badge">GUIDE</span>
+          
           <h3>Scotland versus the rest of the UK</h3>
           <p>Same headline salary, different income-tax stack. NI does not change.</p>
         </a>
         <a class="card" href="/guides/take-home-25000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £25k take-home pay?</h3>
           <p>Gross, tax and NI on a £25,000 salary for 2026/27 — figures match the calculator.</p>
         </a>
         <a class="card" href="/guides/take-home-30000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £30k take-home pay?</h3>
           <p>Gross, tax and NI on a £30,000 salary for 2026/27 — figures match the calculator.</p>
         </a>
         <a class="card" href="/guides/take-home-35000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £35k take-home pay?</h3>
           <p>Same baseline as the calculator default — packet on £35,000.</p>
         </a>
         <a class="card" href="/guides/take-home-40000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £40k take-home pay?</h3>
           <p>Gross, tax and NI on a £40,000 salary for 2026/27 — figures match the calculator.</p>
         </a>
         <a class="card" href="/guides/take-home-45000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £45k take-home pay?</h3>
           <p>Rest-of-UK packet on £45,000 — pairs with the Scotland comparison guide.</p>
         </a>
         <a class="card" href="/guides/take-home-50000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £50k take-home pay?</h3>
           <p>Gross, tax and NI on a £50,000 salary for 2026/27 — figures match the calculator.</p>
         </a>
         <a class="card" href="/guides/take-home-55000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £55k take-home pay?</h3>
           <p>Higher-rate tax and 2% NI already apply on £55,000.</p>
         </a>
         <a class="card" href="/guides/take-home-60000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £60k take-home pay?</h3>
           <p>Gross, tax and NI on a £60,000 salary for 2026/27 — higher-rate and 2% NI.</p>
         </a>
         <a class="card" href="/guides/take-home-70000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £70k take-home pay?</h3>
           <p>Higher-rate packet on £70,000 for 2026/27.</p>
         </a>
         <a class="card" href="/guides/take-home-75000">
-          <span class="badge">GUIDE</span>
+          
           <h3>What’s £75k take-home pay?</h3>
           <p>Higher-rate packet on £75,000 for 2026/27.</p>
         </a>
         <a class="card" href="/guides/take-home-100000">
-          <span class="badge">GUIDE</span>
+          
           <h3>Around £100,000</h3>
           <p>Where the personal allowance starts to taper.</p>
         </a>
         <a class="card" href="/guides/student-loan-plan-5">
-          <span class="badge">GUIDE</span>
+          
           <h3>Plan 5 near its £25,000 threshold</h3>
           <p>On £28,000 the 9% deduction is £270. Plan 2 would still be £0 at that salary.</p>
         </a>
