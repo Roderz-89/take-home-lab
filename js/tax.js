@@ -143,6 +143,7 @@
     el("out-annual").textContent = money(r.takeHome);
     el("out-monthly").textContent = money(r.monthly) + " a month";
     el("out-weekly").textContent = money(r.weekly) + " a week";
+    if (el("sticky-monthly")) el("sticky-monthly").textContent = money(r.monthly) + " a month";
     el("cell-gross").textContent = money(r.headline);
     el("cell-tax").textContent = money(r.tax);
     el("cell-ni").textContent = money(r.ni);
@@ -232,5 +233,18 @@
       btn.addEventListener("click", () => loadExample(btn.getAttribute("data-example")));
     });
     run();
+
+    // Mobile: show the answer in a bottom bar while the form is on screen and the result is not.
+    const bar = document.getElementById("sticky-result");
+    const out = document.getElementById("result");
+    if (bar && out && "IntersectionObserver" in window) {
+      const seen = { form: false, out: false };
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { seen[e.target === out ? "out" : "form"] = e.isIntersecting; });
+        bar.classList.toggle("is-on", seen.form && !seen.out);
+      }, { threshold: 0.05 });
+      io.observe(form);
+      io.observe(out);
+    }
   });
 })();
