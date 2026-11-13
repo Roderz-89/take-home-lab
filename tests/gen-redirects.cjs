@@ -12,9 +12,19 @@ const lines = [
   "",
   "# Legacy salary-guide slugs -> series URLs (one hop, incl. old .html and slash forms)",
 ];
+// Salary guides folded into the take-home pay table on 13 November 2026.
+const TABLE = "/guides/salary-table";
+const merged = ["take-home-20000", "take-home-22000", "take-home-28000", "take-home-32000", "take-home-45000",
+  "take-home-55000", "take-home-65000", "take-home-70000", "take-home-75000", "take-home-90000",
+  "scotland-28000", "scotland-35000", "scotland-40000", "scotland-55000"];
 for (const k of [25, 30, 35, 40, 45, 50, 55, 60, 70, 75]) {
-  const from = `/guides/${k}k-take-home`, to = `/guides/take-home-${k * 1000}`;
+  const from = `/guides/${k}k-take-home`;
+  const to = merged.includes(`take-home-${k * 1000}`) ? TABLE : `/guides/take-home-${k * 1000}`;
   lines.push(`${from} ${to} 301`, `${from}/ ${to} 301`, `${from}.html ${to} 301`);
+}
+lines.push("", "# Salary guides merged into the take-home pay table (one hop)");
+for (const slug of merged) {
+  lines.push(`/guides/${slug} ${TABLE} 301`, `/guides/${slug}/ ${TABLE} 301`, `/guides/${slug}.html ${TABLE} 301`);
 }
 lines.push(
   "",
