@@ -399,3 +399,18 @@ main > .wrap:not(.prose) > p, main > .wrap:not(.prose) > ul { max-width: 46rem; 
   .sticky-result a { color: var(--green-950); background: var(--gold); text-decoration: none; font-weight: 650; font-size: 0.9rem; padding: 0 14px; min-height: 44px; display: inline-flex; align-items: center; border-radius: 8px; }
 }
 @media print { .site-header, .trust-bar, footer, .sticky-result, .related { display: none !important; } body { background: #fff; } }
+
+/* Benefit-in-kind calculators inside guides: single column, same parts as the main calculator */
+.bik { margin: 26px 0 30px; box-shadow: var(--shadow); }
+.bik .calc-head h2 { border-top: 0; padding-top: 0; margin: 0; font-size: 1.2rem; }
+.bik .calc-grid { grid-template-columns: 1fr; }
+.bik .calc-out { border-left: 0; border-top: 2px dashed var(--hairline); }
+.bik .calc-out .tw { margin-top: 14px; }
+.bik label.check { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.bik label.check input { width: 22px; height: 22px; flex: 0 0 auto; }
+.bik [hidden] { display: none !important; }
+/* Show an ad slot only once Google has filled it, so nobody sees an empty box */
+/* Collapsed rather than display:none, so the slot keeps its width and AdSense can still fill it. */
+.ad-slot:not(:has(ins.adsbygoogle[data-ad-status="filled"])) { height: 0; margin: 0; overflow: hidden; visibility: hidden; }
+#st-table tr.is-hit { background: var(--gold-soft); box-shadow: inset 4px 0 0 var(--gold); }
+#st-table tr { scroll-margin-top: 90px; }
