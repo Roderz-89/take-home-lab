@@ -7,3 +7,9 @@ Static draft of the UK take-home pay calculator from Rodway Labs.
 - Do not treat this repo as the live publication until Remortgage Lab hits its content gate.
 
 Open `index.html` locally, or enable GitHub Pages from the `main` branch root.
+
+## Deploying
+
+Since 13 November 2026 the Cloudflare Worker `takehomelab` is connected to this repository
+(Workers Builds). Every push to `main` runs `npx wrangler deploy` automatically; there is no
+build step. Manual `npx wrangler deploy` still works.
