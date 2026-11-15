@@ -149,6 +149,8 @@ input:focus, select:focus { border-color: var(--green-600); outline: 3px solid r
 .period dt { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
 .period dd { margin: 2px 0 0; font-size: 1.3rem; font-weight: 700; color: var(--green-900); letter-spacing: -0.03em; line-height: 1.15; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .period.is-main dd { font-size: 1.45rem; }
+.result-disclaimer { margin: 10px 0 0; padding: 8px 10px; font-size: 0.78rem; line-height: 1.45; color: var(--gold-ink); background: var(--gold-soft); border-radius: 8px; }
+.result-disclaimer a { color: var(--gold-ink); }
 .calc-grid > * { min-width: 0; }
 /* Annual / monthly / weekly breakdown table */
 .pb-title { font-size: 1rem; margin: 22px 0 6px; }
@@ -465,3 +467,4 @@ main > .wrap:not(.prose) > p, main > .wrap:not(.prose) > ul { max-width: 46rem; 
 .ad-slot:not(:has(ins.adsbygoogle[data-ad-status="filled"])) { height: 0; margin: 0; overflow: hidden; visibility: hidden; }
 #st-table tr.is-hit { background: var(--gold-soft); box-shadow: inset 4px 0 0 var(--gold); }
 #st-table tr { scroll-margin-top: 90px; }
+main p a, main li a { overflow-wrap: anywhere; }
