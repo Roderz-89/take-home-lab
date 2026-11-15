@@ -130,6 +130,7 @@
       hasPgl,
       slLabel: slDef.label,
       pensionOut,
+      pensionType: scheme,
       takeHome,
       monthly: takeHome / 12,
       weekly: takeHome / 52,
@@ -141,17 +142,39 @@
     const el = (id) => document.getElementById(id);
     if (!el("out-annual")) return;
     el("out-annual").textContent = money(r.takeHome);
-    el("out-monthly").textContent = money(r.monthly) + " a month";
-    el("out-weekly").textContent = money(r.weekly) + " a week";
+    el("out-monthly").textContent = money(r.monthly);
+    el("out-weekly").textContent = money(r.weekly);
     if (el("sticky-monthly")) el("sticky-monthly").textContent = money(r.monthly) + " a month";
-    el("cell-gross").textContent = money(r.headline);
-    el("cell-tax").textContent = money(r.tax);
-    el("cell-ni").textContent = money(r.ni);
-    el("cell-sl").textContent = money(r.studentLoanUG);
-    if (el("cell-pgl")) el("cell-pgl").textContent = money(r.studentLoanPG);
-    el("cell-pen").textContent = money(r.pensionOut);
-    el("cell-net").textContent = money(r.takeHome);
-    el("cell-pa").textContent = money(r.allowance);
+    if (el("cell-pa")) el("cell-pa").textContent = money(r.allowance);
+
+    // Annual / monthly / weekly table. Deductions shown as negatives so the
+    // columns read top to bottom: gross, minus deductions, equals take-home.
+    const table = el("pb-table");
+    if (table) {
+      const ded = r.tax + r.ni + r.pensionOut + r.studentLoanUG + r.studentLoanPG;
+      const rows = {
+        gross: { v: r.headline, sign: 1 },
+        tax: { v: r.tax, sign: -1 },
+        ni: { v: r.ni, sign: -1 },
+        pen: { v: r.pensionOut, sign: -1 },
+        sl: { v: r.studentLoanUG, sign: -1 },
+        pgl: { v: r.studentLoanPG, sign: -1 },
+        ded: { v: ded, sign: -1 },
+        keep: { v: r.takeHome, sign: 1 }
+      };
+      const fmt = (v, sign) => (sign < 0 && v > 0 ? "−" : "") + money(v);
+      table.querySelectorAll("tr[data-k]").forEach((tr) => {
+        const row = rows[tr.getAttribute("data-k")];
+        if (!row) return;
+        const cells = tr.querySelectorAll("td");
+        [row.v, row.v / 12, row.v / 52].forEach((v, i) => { if (cells[i]) cells[i].textContent = fmt(v, row.sign); });
+        tr.classList.toggle("is-zero", !(row.v > 0));
+      });
+      const pglRow = table.querySelector('tr[data-k="pgl"]');
+      if (pglRow) pglRow.hidden = !r.hasPgl;
+      const penRow = table.querySelector('tr[data-k="pen"] th');
+      if (penRow) penRow.textContent = r.pensionOut > 0 && r.pensionType === "sacrifice" ? "Pension (salary sacrifice)" : r.pensionOut > 0 && r.pensionType === "netpay" ? "Pension (net pay)" : "Pension";
+    }
 
     // Stacked breakdown bar + legend (£ and % of gross).
     const g = r.headline;
@@ -179,6 +202,7 @@
         if (k === "pgl") li.hidden = !r.hasPgl;
       });
       if (el("name-sl")) el("name-sl").textContent = names.sl;
+      if (el("pb-name-sl")) el("pb-name-sl").textContent = names.sl;
     }
 
     const parts = document.getElementById("tax-parts");
