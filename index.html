@@ -119,8 +119,11 @@
           <div class="calc-out" id="result">
             <div class="netpay">
               <p class="hint">Estimated take-home, 2026/27</p>
-              <div class="result-hero" id="out-annual" aria-live="polite">—</div>
-              <div class="result-sub"><span id="out-monthly">—</span> · <span id="out-weekly">—</span></div>
+              <dl class="periods" aria-live="polite">
+                <div class="period"><dt>Per year</dt><dd id="out-annual">—</dd></div>
+                <div class="period is-main"><dt>Per month</dt><dd id="out-monthly">—</dd></div>
+                <div class="period"><dt>Per week</dt><dd id="out-weekly">—</dd></div>
+              </dl>
             </div>
             <div class="breakdown">
               <p class="bd-title" id="bd-title">Where each £ of gross pay goes</p>
@@ -128,18 +131,31 @@
                 <span class="seg seg-keep" data-k="keep"></span><span class="seg seg-tax" data-k="tax"></span><span class="seg seg-ni" data-k="ni"></span><span class="seg seg-pen" data-k="pen"></span><span class="seg seg-sl" data-k="sl"></span><span class="seg seg-pgl" data-k="pgl"></span>
               </div>
               <ul class="bd-legend" aria-labelledby="bd-title">
-                <li data-k="keep"><span class="sw seg-keep" aria-hidden="true"></span><span class="bd-name">Take-home</span><span class="bd-val"><span id="cell-net">—</span> <span class="bd-pct" id="pct-keep"></span></span></li>
-                <li data-k="tax"><span class="sw seg-tax" aria-hidden="true"></span><span class="bd-name">Income tax</span><span class="bd-val"><span id="cell-tax">—</span> <span class="bd-pct" id="pct-tax"></span></span></li>
-                <li data-k="ni"><span class="sw seg-ni" aria-hidden="true"></span><span class="bd-name">National Insurance</span><span class="bd-val"><span id="cell-ni">—</span> <span class="bd-pct" id="pct-ni"></span></span></li>
-                <li data-k="pen"><span class="sw seg-pen" aria-hidden="true"></span><span class="bd-name">Pension</span><span class="bd-val"><span id="cell-pen">—</span> <span class="bd-pct" id="pct-pen"></span></span></li>
-                <li data-k="sl"><span class="sw seg-sl" aria-hidden="true"></span><span class="bd-name" id="name-sl">Student loan</span><span class="bd-val"><span id="cell-sl">—</span> <span class="bd-pct" id="pct-sl"></span></span></li>
-                <li data-k="pgl"><span class="sw seg-pgl" aria-hidden="true"></span><span class="bd-name">Postgraduate Loan</span><span class="bd-val"><span id="cell-pgl">—</span> <span class="bd-pct" id="pct-pgl"></span></span></li>
+                <li data-k="keep"><span class="sw seg-keep" aria-hidden="true"></span><span class="bd-name">Take-home</span><span class="bd-val bd-pct" id="pct-keep"></span></li>
+                <li data-k="tax"><span class="sw seg-tax" aria-hidden="true"></span><span class="bd-name">Income tax</span><span class="bd-val bd-pct" id="pct-tax"></span></li>
+                <li data-k="ni"><span class="sw seg-ni" aria-hidden="true"></span><span class="bd-name">National Insurance</span><span class="bd-val bd-pct" id="pct-ni"></span></li>
+                <li data-k="pen"><span class="sw seg-pen" aria-hidden="true"></span><span class="bd-name">Pension</span><span class="bd-val bd-pct" id="pct-pen"></span></li>
+                <li data-k="sl"><span class="sw seg-sl" aria-hidden="true"></span><span class="bd-name" id="name-sl">Student loan</span><span class="bd-val bd-pct" id="pct-sl"></span></li>
+                <li data-k="pgl"><span class="sw seg-pgl" aria-hidden="true"></span><span class="bd-name">Postgraduate Loan</span><span class="bd-val bd-pct" id="pct-pgl"></span></li>
               </ul>
             </div>
-            <div class="tscroll" role="region" aria-label="Calculation summary (scrollable table)" tabindex="0"><table class="table">
-              <tr><th>Gross used</th><td id="cell-gross">—</td></tr>
-              <tr><th>Personal allowance in this run</th><td id="cell-pa">—</td></tr>
+            <h3 class="pb-title" id="pb-title">Your pay, year by month by week</h3>
+            <div class="tscroll" role="region" aria-labelledby="pb-title" tabindex="0"><table class="table pb-table" id="pb-table">
+              <thead><tr><th scope="col"><span class="sr-only">Item</span></th><th scope="col">Annual</th><th scope="col">Monthly</th><th scope="col">Weekly</th></tr></thead>
+              <tbody>
+                <tr class="pb-gross" data-k="gross"><th scope="row">Gross pay</th><td>—</td><td>—</td><td>—</td></tr>
+                <tr data-k="tax"><th scope="row">Income tax</th><td>—</td><td>—</td><td>—</td></tr>
+                <tr data-k="ni"><th scope="row">National Insurance</th><td>—</td><td>—</td><td>—</td></tr>
+                <tr data-k="pen"><th scope="row">Pension</th><td>—</td><td>—</td><td>—</td></tr>
+                <tr data-k="sl"><th scope="row" id="pb-name-sl">Student loan</th><td>—</td><td>—</td><td>—</td></tr>
+                <tr data-k="pgl" hidden><th scope="row">Postgraduate Loan</th><td>—</td><td>—</td><td>—</td></tr>
+                <tr class="pb-ded" data-k="ded"><th scope="row">Total deductions</th><td>—</td><td>—</td><td>—</td></tr>
+              </tbody>
+              <tfoot>
+                <tr class="pb-net" data-k="keep"><th scope="row">Take-home pay</th><td>—</td><td>—</td><td>—</td></tr>
+              </tfoot>
             </table></div>
+            <p class="hint pb-note">Monthly is the annual figure ÷ 12 and weekly is ÷ 52, rounded to the penny, so columns can differ by a penny. Personal allowance in this run: <strong id="cell-pa">—</strong>.</p>
             <p class="hint">Income tax slices</p>
             <ul class="hint" id="tax-parts"></ul>
             <p class="method">Method: annual PAYE-style stack. Income tax on pay after personal allowance and any modelled pension relief. Employee Class 1 NI at 8% between £12,570 and £50,270 and 2% above, modelled on the year rather than each pay period. Student loan as a percentage of earnings above the plan threshold.</p>
