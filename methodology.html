@@ -25,7 +25,7 @@
   <meta property="og:image:alt" content="Take-Home Lab">
   <meta property="og:site_name" content="Take-Home Lab">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"How the calculator stacks a packet","description":"How the Take-Home Lab 2026/27 calculator stacks income tax, National Insurance, student loans and a simple pension. Illustrative only.","url":"https://takehomelab.co.uk/methodology","dateModified":"2026-11-12","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"How the calculator stacks a packet","item":"https://takehomelab.co.uk/methodology"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://takehomelab.co.uk/#org","name":"Rodway Labs","url":"https://takehomelab.co.uk/","email":"hello@takehomelab.co.uk","logo":{"@type":"ImageObject","url":"https://takehomelab.co.uk/brand/rodway-labs-logo-200.png","width":570,"height":200}},{"@type":"WebPage","name":"How the calculator stacks a packet","description":"How the Take-Home Lab 2026/27 calculator stacks income tax, National Insurance, student loans and a simple pension. Illustrative only.","url":"https://takehomelab.co.uk/methodology","dateModified":"2026-11-16","publisher":{"@id":"https://takehomelab.co.uk/#org"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://takehomelab.co.uk/"},{"@type":"ListItem","position":2,"name":"How the calculator stacks a packet","item":"https://takehomelab.co.uk/methodology"}]}]}</script>
 </head>
 <body>
   <header class="site-header">
@@ -73,7 +73,17 @@
 </ol>
 
 <h2>Income tax</h2>
-<p>England, Wales and Northern Ireland use the main rates: 20% on taxable pay up to £37,700, 40% to £125,140, 45% above. The standard personal allowance is £12,570, reduced by £1 for every £2 of income above £100,000 (gone at £125,140). Scotland uses the 2026/27 Scottish bands on non-savings, non-dividend income. The model assumes a 1257L-style allowance unless the taper applies.</p>
+<p>England, Wales and Northern Ireland use the main rates: 20% on taxable pay up to £37,700, 40% to £125,140, 45% above. The standard personal allowance is £12,570, reduced by £1 for every £2 of income above £100,000 (gone at £125,140). Scotland uses the 2026/27 Scottish bands on non-savings, non-dividend income. On the default 1257L code the model uses the statutory allowance, including the taper. Any other tax code you enter is applied as your payroll would apply it:</p>
+<ul>
+  <li><strong>Number codes (1257L, 1100L, 1383M, 1257N, 1257T):</strong> tax-free pay is the number × 10. No taper is added on top, because HMRC builds it into the code.</li>
+  <li><strong>0T:</strong> no tax-free allowance; the normal bands apply.</li>
+  <li><strong>K codes (e.g. K475):</strong> the number × 10 is added to taxable pay. Tax is capped at 50% of pay, HMRC’s overriding limit.</li>
+  <li><strong>BR, D0, D1:</strong> all pay from the job taxed at 20%, 40% or 45%. Scottish SBR, SD0, SD1, SD2 and SD3 use 20%, 21%, 42%, 45% and 48%.</li>
+  <li><strong>NT:</strong> no income tax.</li>
+  <li><strong>Prefixes:</strong> S uses Scottish bands and C (Wales) the England and Northern Ireland bands, whatever region is selected.</li>
+  <li><strong>W1, M1, X (emergency):</strong> accepted. Over a full year of steady pay the non-cumulative basis gives the same total, which is what the calculator shows.</li>
+</ul>
+<p>The calculator also covers 2025/26 (6 April 2025 to 5 April 2026). UK bands, the personal allowance and NI are the same in both years. 2025/26 uses the Scottish starter band to £15,397 and basic band to £27,491, and student loan thresholds of £26,065 (Plan 1), £28,470 (Plan 2) and £32,745 (Plan 4); Plan 5 was not collected before April 2026.</p>
 
 <h2>National Insurance</h2>
 <p>Employee Class 1 is modelled on the year: 8% between £12,570 and £50,270, then 2%. Real payroll calculates National Insurance each pay period. A bonus month, short weeks or irregular overtime can therefore differ from this annual stack.</p>
@@ -140,11 +150,11 @@
 </ul>
 
 <h2>Left out</h2>
-<p>Other tax codes, marriage allowance, blind person’s allowance, the High Income Child Benefit Charge, savings and dividends, company benefits, court orders, payroll giving, Scottish starter/higher interactions beyond the published bands, and employer National Insurance.</p>
+<p>Checking whether your tax code is correct, blind person’s allowance, the High Income Child Benefit Charge, savings and dividends, company benefits, court orders, payroll giving, Scottish starter/higher interactions beyond the published bands, and employer National Insurance.</p>
 
 <h2>Why a guide can disagree with a payslip</h2>
 <ul>
-  <li>Your tax code is not 1257L, or you have a week-1 / month-1 basis.</li>
+  <li>You are on a week-1 / month-1 basis and your pay changes from period to period.</li>
   <li>National Insurance was calculated that pay period, not as an annual average.</li>
   <li>You have two undergraduate plans, or a loan deduction triggered in a single high-paid month (loans are worked out each pay period).</li>
   <li>Pension is salary sacrifice on the payslip but net pay in the model (or the reverse).</li>

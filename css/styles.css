@@ -468,3 +468,9 @@ main > .wrap:not(.prose) > p, main > .wrap:not(.prose) > ul { max-width: 46rem; 
 #st-table tr.is-hit { background: var(--gold-soft); box-shadow: inset 4px 0 0 var(--gold); }
 #st-table tr { scroll-margin-top: 90px; }
 main p a, main li a { overflow-wrap: anywhere; }
+
+/* Tax code feedback under the calculator inputs */
+.calc-form .code-note { margin-top: 6px; padding: 8px 10px; border-left: 3px solid var(--gold); background: rgba(244,184,58,0.10); border-radius: 4px; color: var(--foreground); }
+.calc-form .code-note.is-error { border-left-color: #b42318; background: rgba(180,35,24,0.08); }
+.calc-form #taxCode { text-transform: uppercase; }
+.calc-form #taxCode[aria-invalid="true"] { border-color: #b42318; }
